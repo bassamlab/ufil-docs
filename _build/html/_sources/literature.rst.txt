@@ -1,4 +1,4 @@
 Literature
 ==========
 
-**Redacted**
+Redacted for double blind review. 
