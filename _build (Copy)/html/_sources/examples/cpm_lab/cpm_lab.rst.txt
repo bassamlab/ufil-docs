@@ -1,2 +1,0 @@
-Cyber-Physical Mobility Lab
-===========================
