@@ -1,5 +1,12 @@
 {
-  "build": { "dockerfile": "Dockerfile" },
+  "name": "Ufil Documentation Development Container",
+  "privileged": true,
+  "remoteUser": "root",
+  "build": { 
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/docs",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/docs,type=bind",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -9,7 +16,13 @@
       ]
     }
   },
+  "runArgs": [
+    "--net=host",
+    "--pid=host",
+    "--ipc=host"
+  ],
   "mounts": [
-    "type=bind,source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly"
+    "source=${localEnv:HOME}/.gitconfig,target=/.gitconfig,type=bind,consistency=cached",
+    "source=${localEnv:HOME}/.ssh,target=/.ssh,type=bind,readonly"
   ]
 }
