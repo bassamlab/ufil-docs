@@ -17,9 +17,9 @@ Maintainer
 
 **Contact Information:**  
 
-- 📧 **Email**: `XXXX <mailto:XXXX>`_
-- 🔗 **LinkedIn**: `XXXX <https://www.linkedin.com/in/XXXX/>`_
-- 🐙 **GitHub**: `XXXX <https://github.com/XXXX>`_
+- 📧 **Email**: XXXX
+- 🔗 **LinkedIn**: XXXX
+- 🐙 **GitHub**: XXXX
 
 ----
 

@@ -20,4 +20,4 @@ This method is intended for:
    Please use one of the following methods instead:
 
    - :ref:`Native source installation <install_from_source_natively>`
-   - :ref:`Docker-based installation <_install_from_source_via_docker>`
+   - :ref:`Docker-based installation <install_from_source_via_docker>`

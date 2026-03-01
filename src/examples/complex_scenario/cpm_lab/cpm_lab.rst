@@ -6,12 +6,17 @@ Cyber-Physical Mobility Lab
 The **Cyber-Physical Mobility (CPM) Lab** example in **Ufil** demonstrates one of the framework's most advanced use cases.  
 It consists of three packages and is included in the ``ufil_examples`` module.
 
-This scenario illustrates how a complete infrastructure-based localization system, described in the :ref:`_complex_scenario`, can be executed on a small-scale testbed like the CPM Lab.
+This scenario illustrates how a complete infrastructure-based localization system, described in the :ref:`Complex Scenario <complex_scenario>`, can be executed on a small-scale testbed like the CPM Lab.
 
 Scenario
 ----------
 
+The scenario is a three-lane highway segment with an sensitive surface layer (SSL)covering the two right-most lanes near the upstream part of the segment and a roadside lidar outdoor sensor node installed downstream, facing the SSL region; their fields of view partially overlap. Vehicles are equipped with V2I functionality and broadcast CAM messages. 
 
+.. image:: /images/highway_scenario.pdf
+   :width: 400px
+   :align: center
+   :alt: Illustration of the scenario.
 
 Usage
 -----
