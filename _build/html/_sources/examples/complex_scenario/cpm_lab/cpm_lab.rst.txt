@@ -11,12 +11,21 @@ This scenario illustrates how a complete infrastructure-based localization syste
 Scenario
 ----------
 
-The scenario is a three-lane highway segment with an sensitive surface layer (SSL)covering the two right-most lanes near the upstream part of the segment and a roadside lidar outdoor sensor node installed downstream, facing the SSL region; their fields of view partially overlap. Vehicles are equipped with V2I functionality and broadcast CAM messages. 
+The scenario is a three-lane highway segment with an sensitive surface layer (SSL) covering the two right-most lanes near the upstream part of the segment and a roadside lidar outdoor sensor node installed downstream, facing the SSL region; their fields of view partially overlap. Vehicles are equipped with V2I functionality and broadcast CAM messages. 
 
-.. image:: /images/highway_scenario.pdf
+.. image:: /images/highway_scenario.png
    :width: 400px
    :align: center
    :alt: Illustration of the scenario.
+
+
+The setup in the testbed look like this.
+
+.. image:: /images/cpm_lab_scenario.jpg
+   :width: 400px
+   :align: center
+   :alt: Illustration of the scenario.
+
 
 Usage
 -----

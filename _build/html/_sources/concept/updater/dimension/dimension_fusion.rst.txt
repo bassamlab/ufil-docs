@@ -46,7 +46,7 @@ The function we use to calculate the probabilities is the following one:
 
 The illustration of the process can be found in the figure below.
 
-.. figure:: ../../../images/dimension_estimation.pdf
+.. figure:: ../../../images/dimension_estimation.png
    :width: 400px
    :align: center
    :alt: Dimension Fusion

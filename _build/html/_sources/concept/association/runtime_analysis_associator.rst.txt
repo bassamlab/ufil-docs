@@ -6,7 +6,7 @@ Runtime Analysis Associator
 
 We performed a runtime analysis of four associators implemented in Ufil: Greedy, LP-solver, Hungarian, and Jonker-Volgenant (LAPJV). For the analysis we tasked each associator with solving the same assignment problem 100 times, and measured the average runtime for each method. The results are illustrated in the boxplot below, which shows the distribution of runtimes for each method across the 100 runs. The analysis was performed on a cost matrix of size 5x5, 10x10, 50x50, and 100x100, which are representative of typical association problems in tracking applications. We conducted the test on a MacBook Pro with an Apple M2 Pro chip with 16GB RAM, running macOS Tahoe 26.3.
 
-.. figure:: /images/runtime_association.pdf
+.. figure:: /images/runtime_association.png
    :align: center
    :width: 80%
 
