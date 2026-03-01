@@ -8,7 +8,7 @@ similar to the example shown below.
 
 ![Title page of Ufil documentation](src/images/title_page_documentation.png)
 
-Alternatively, find the current version of the documentation here: [XXXX](XXXX)
+Alternatively, find a full html build of the current version of this documentation [here](_build/html/).
 
 # 📚 Sphinx Documentation (Dev Container Setup)
 
