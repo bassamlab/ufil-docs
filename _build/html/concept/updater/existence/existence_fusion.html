@@ -1,0 +1,246 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Existence Probability Fusion &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Motion Models" href="../../models/models.html" />
+    <link rel="prev" title="Existence" href="existence.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../updater.html">Updater</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../state/state.html">State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dimension/dimension.html">Dimension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../classificaiton/classificaiton.html">Classification</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="existence.html">Existence</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Existence Probability Fusion</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models/models.html">Motion Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="../updater.html">Updater</a></li>
+          <li class="breadcrumb-item"><a href="existence.html">Existence</a></li>
+      <li class="breadcrumb-item active">Existence Probability Fusion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/concept/updater/existence/existence_fusion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="existence-probability-fusion">
+<h1>Existence Probability Fusion<a class="headerlink" href="#existence-probability-fusion" title="Link to this heading"></a></h1>
+<p>The existence probability fusion uses a sensor-to-global fusion strategy and is modelled with the Dempster-Shafer Evidence Theory as presented by Aeberhard.
+The Theorem specifies a so called frame of discernment <span class="math notranslate nohighlight">\(\Theta\)</span> that consists of mutually exclusive hypotheses, in this case existence and non-existence.
+Next we create the powerset <span class="math notranslate nohighlight">\(2^\Theta = \{\emptyset, \exists, \nexists, \{\exists, \nexists\}\}\)</span>. As we now not only have the existence and non-existence we can use the mutually exclusive hypotheses to model uncertainty.</p>
+<p>Now so called Basic Belief Assignments (BBAs) are created that represents the level of evidence we have for an element of the powerset to be true. It is defined as:</p>
+<div class="math notranslate nohighlight">
+\[m: 2^\Theta \rightarrow [0, 1].\]</div>
+<p>and all values add up to one.</p>
+<p>Additionally we have a belief function Bel(A) that contains all the BBAs of the subsets of A defined and can be seen as the lower-bound probability of A’s evidence. The upper-bound is the so called plausability Pl(A) that contains all the sets that support the belief in A.
+The functions are defined as follows:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}Bel(A) = \sum_{B:B \subseteqq A} m(B)\\Pl(A) = \sum_{B:B \cap A \neq \emptyset} m(B)\end{aligned}\end{align} \]</div>
+<p>The difference between the values is then the uncertainty.</p>
+<section id="prediction">
+<h2>Prediction<a class="headerlink" href="#prediction" title="Link to this heading"></a></h2>
+<p>First we start with the prediction of the existence probability. For that we use a weight <span class="math notranslate nohighlight">\(\gamma\)</span> to transfer a certain percentage of the existence and non-existence into the uncertainty.
+The weight is modelled over time with the function <span class="math notranslate nohighlight">\(\gamma = 1 - e^{-3 * \Delta t}\)</span> and is clamped between the parameter weight_min and weight_max. So the higher the weight the more amount of uncertainty we have.
+The prediction is now calculated as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;m_{k|k-1}^G(\{\exists\}) = (1 - \gamma) * m^G_{k-1|k-1}(\{\exists\}) \\
+&amp;m_{k|k-1}^G(\{\nexists\}) = (1 - \gamma) * m^G_{k-1|k-1}(\{\nexists\}) \\
+&amp;m_{k|k-1}^G(\{\exists, \nexists\}) = m^G_{k-1|k-1}(\{\exists, \nexists\}) + \gamma (m^G_{k-1|k-1}(\{\exists\}) + m^G_{k-1|k-1}(\{\nexists\}))
+\end{align*}\end{split}\]</div>
+</section>
+<section id="persistence-probability">
+<h2>Persistence Probability<a class="headerlink" href="#persistence-probability" title="Link to this heading"></a></h2>
+<p>Next we need the so called persistence probability to calculate the BBAs.
+It is modelled by using the FOV of the sensor and consists of a range and angle part. It is calculated in polar coordinates as follows:</p>
+<div class="math notranslate nohighlight">
+\[p^{mod}_p (r, \phi) = p_p(r) * p_p(\phi)\]</div>
+<p>The range r and the the angle <span class="math notranslate nohighlight">\(\phi\)</span> are calculated from the distance to the sensor and as we use cartesian coordinates we first need to convert them into polar coordinates.
+The maximum persistence probability is denoted as <span class="math notranslate nohighlight">\(p^{max}_p\)</span> and <span class="math notranslate nohighlight">\(\alpha\)</span> is another parameter for the log function.
+The values <span class="math notranslate nohighlight">\(m_r\)</span> and <span class="math notranslate nohighlight">\(m_\phi\)</span> are cutoff ranges / angles where we dont expect the sensor to be that accurate anymore.
+The range persistence probability is modelled as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p_p(r) =
+\begin{cases}
+    0                                                                                           &amp;\text{wenn } r &lt; r_{min} \\
+    p^{max}_p                                                                                   &amp;\text{wenn } r_{min} \leq r &lt; r_{max} * (1 - m_r) \\
+    p^{max}_p * (e^{\frac{-log(\alpha) * (r - r_{max})}{r_{max} - r_{max} * (1 - m_r)} } + 1)   &amp;\text{wenn } r_{max} * (1 - m_r) \leq r \leq r_{max} \\
+    0                                                                                           &amp;\text{wenn } r &gt; r_{max} \\
+\end{cases}\end{split}\]</div>
+<p>The angle persistence probability is modelled as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}p_p(\phi) =
+\begin{cases}
+0                                                                                                                            &amp;\text{wenn } \phi &lt; -\phi_{max} \\
+    p^{max}_p * \frac{1}{2} * (e^{\frac{-log(\alpha) * (\phi + \phi_{max})}{\phi_{max} * (1 - m_\phi)- \phi_{max} }} + 1)    &amp;\text{wenn } -\phi_{max} \leq \phi \leq -\phi_{max} * (1 - m_\phi) \\
+    p^{max}_p                                                                                                                &amp;\text{wenn } -\phi_{max} * (1 - m_\phi) &lt; \phi &lt; \phi_{max} * (1 - m_\phi) \\
+    p^{max}_p * \frac{1}{2} * (e^{\frac{-log(\alpha) * (\phi + \phi_{max})}{\phi_{max} - \phi_{max} * (1 - m_\phi)}} + 1)    &amp;\text{wenn } \phi_{max} * (1 - m_\phi) \leq \phi \leq \phi_{max} \\
+    0                                                                                                                        &amp;\text{wenn } \phi &gt; \phi_{max} \\
+\end{cases}\end{split}\]</div>
+<p>If we have a metric for occlusion and the object is occluded the persistence probability is set to 0.</p>
+</section>
+<section id="combination-of-bbas">
+<h2>Combination of BBAs<a class="headerlink" href="#combination-of-bbas" title="Link to this heading"></a></h2>
+<p>Now that we have our BBAs the DST now defines a rule of the combination of the BBAs to fuse the data of differnt sensors i into the global object G.</p>
+<div class="math notranslate nohighlight">
+\[m^G_{k|k}(C) = \frac{\sum_{A \cap B = C} m^G_{k|k-1}(A) * m^i_k(B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k|k-1}(A) * m^i_k(B)}\]</div>
+<p>Next we have two different cases: either the global object got associated with an object of the sensor or it did not.</p>
+</section>
+<section id="update-with-associated-object">
+<h2>Update with associated object<a class="headerlink" href="#update-with-associated-object" title="Link to this heading"></a></h2>
+<p>We start with the case of the association:
+For the assingment we need a trust value from the sensor which defines the ability of its performance in calculation of the existence probability.</p>
+<p>The assignments are as follows:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;m^i_k(\{\exists\}) = p^i_p(x_{k|k}) * p^i_{trust} * p^i_k(\exists x_k) \\
+&amp;m^i_k(\{\nexists\}) = p^i_p(x_{k|k}) * p^i_{trust} * [1 - p^i_k(\exists x_k)] \\
+&amp;m^i_k(\{\exists, \nexists \}) = 1 - [m^i_k(\{\exists\}) + m^i_k(\{\nexists\})]\\
+\end{align*}\end{split}\]</div>
+<p>The BBAs for the global objects are then updated like this:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;m^G_{k|k}(\{\exists\}) = \frac{m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\exists\}) + m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\exists, \nexists\}) + m^G_{k|k-1}(\{\exists, \nexists\}) * m^i_k(\{\exists\})}{1 - [m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\nexists\}) + m^G_{k|k-1}(\{\nexists\}) * m^i_k(\{\exists\})]} \\
+&amp;m^G_{k|k}(\{\nexists\}) = \frac{m^G_{k|k-1}(\{\nexists\}) * m^i_k(\{\nexists\}) + m^G_{k|k-1}(\{\nexists\}) * m^i_k(\{\exists, \nexists\}) + m^G_{k|k-1}(\{\exists, \nexists\}) * m^i_k(\{\nexists\})}{1 - [m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\nexists\}) + m^G_{k|k-1}(\{\nexists\}) * m^i_k(\{\exists\})]} \\
+&amp;m^G_{k|k}(\{\exists, \nexists\}) = \frac{m^G_{k|k-1}(\{\exists, \nexists\}) * m^i_k(\{\exists, \nexists\}) }{1 - [m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\nexists\}) + m^G_{k|k-1}(\{\nexists\}) * m^i_k(\{\exists\})]} \\
+\end{align*}\end{split}\]</div>
+</section>
+<section id="update-without-associated-object">
+<h2>Update without associated object<a class="headerlink" href="#update-without-associated-object" title="Link to this heading"></a></h2>
+<p>Now we have the case of no object association:
+The gloabl object should only be updated if it falls in the FOV of the sensor and is not occluded. This is the case if the persistence probability is 0.
+The BBA for the existence is now zero as no object was matched to the gloabl object.
+The sensor BBAs are defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\begin{align*}
+&amp;m^i_k(\{\exists\}) = 0 \\
+&amp;m^i_k(\{\nexists\}) = p^i_p(x_{k|k}) * p^i_{trust} \\
+&amp;m^i_k(\{\exists, \nexists \}) = 1 - p^i_p(x_{k|k}) * p^i_{trust} \\
+\end{align*}\end{split}\]</div>
+<p>Now the only update for the global object that changes in comparison to the associated object is the update for the existence. It is now defined as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}m^G_{k|k}(\{\exists\}) = \frac{m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\exists, \nexists\})}{1 - m^G_{k|k-1}(\{\exists\}) * m^i_k(\{\nexists\})} \\\end{split}\]</div>
+</section>
+<section id="conversion-of-the-bbas-into-the-existence-probability">
+<h2>Conversion of the bbas into the existence probability<a class="headerlink" href="#conversion-of-the-bbas-into-the-existence-probability" title="Link to this heading"></a></h2>
+<p>Since the existence probability is only a single value we now need to convert our BBAs into the real existence probability.
+We do that with this formula:</p>
+<div class="math notranslate nohighlight">
+\[p^G(\exists x_k) = m^G_{k|k} (\{\exists\}) + \frac{1}{2} * m^G_{k|k} (\{\exists, \nexists\})\]</div>
+<p>With that we are now finished.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>M. Aeberhard, “Object-level fusion for surround environment perception in automated driving applications,” VDI Verlag, 2017</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="existence.html" class="btn btn-neutral float-left" title="Existence" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../models/models.html" class="btn btn-neutral float-right" title="Motion Models" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

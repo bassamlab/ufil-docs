@@ -1,0 +1,244 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hungarian Algorithm &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Jonker–Volgenant Algorithm" href="lapjv_association.html" />
+    <link rel="prev" title="Association Methods" href="association.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/models.html">Motion Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="association.html">Association Methods</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Hungarian Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lapjv_association.html">Jonker–Volgenant Algorithm</a></li>
+<li class="toctree-l3"><a class="reference internal" href="lp_solver_association.html">Linear Programming Solver</a></li>
+<li class="toctree-l3"><a class="reference internal" href="greedy_association.html">Greedy Associator</a></li>
+<li class="toctree-l3"><a class="reference internal" href="runtime_analysis_associator.html">Runtime Analysis Associator</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="association.html">Association Methods</a></li>
+      <li class="breadcrumb-item active">Hungarian Algorithm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/association/hungarian_association.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="hungarian-algorithm">
+<span id="id1"></span><h1>Hungarian Algorithm<a class="headerlink" href="#hungarian-algorithm" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Hungarian algorithm is a combinatorial optimization algorithm that solves
+the linear assignment problem in polynomial time. It computes a globally
+optimal one-to-one assignment between rows and columns of a cost matrix such
+that the total cost is minimized.</p>
+<p>In UFIL, the Hungarian algorithm is used to associate tracks and measurements
+based on a previously computed cost matrix.</p>
+<p>The algorithm guarantees:</p>
+<ul class="simple">
+<li><p>Globally optimal solution</p></li>
+<li><p>Deterministic behavior</p></li>
+<li><p>One-to-one assignments</p></li>
+</ul>
+</section>
+<section id="problem-formulation">
+<h2>Problem Formulation<a class="headerlink" href="#problem-formulation" title="Link to this heading"></a></h2>
+<p>Given a cost matrix <span class="math notranslate nohighlight">\(C \in \mathbb{R}^{n \times m}\)</span>, the goal is to find
+an assignment matrix <span class="math notranslate nohighlight">\(A\)</span> that minimizes:</p>
+<div class="math notranslate nohighlight">
+\[\sum_{i,j} C_{ij} A_{ij}\]</div>
+<p>subject to:</p>
+<ul class="simple">
+<li><p>Each row is assigned at most once</p></li>
+<li><p>Each column is assigned at most once</p></li>
+<li><p><span class="math notranslate nohighlight">\(A_{ij} \in \{0,1\}\)</span></p></li>
+</ul>
+</section>
+<section id="characteristics">
+<h2>Characteristics<a class="headerlink" href="#characteristics" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Optimal solution</p></li>
+<li><p>Time complexity: <span class="math notranslate nohighlight">\(\mathcal{O}(n^3)\)</span></p></li>
+<li><p>Suitable for moderate-sized problems</p></li>
+<li><p>Widely used in tracking systems</p></li>
+</ul>
+</section>
+<section id="selection-note">
+<h2>Selection Note<a class="headerlink" href="#selection-note" title="Link to this heading"></a></h2>
+<p>The Hungarian algorithm is recommended when a guaranteed optimal assignment
+is required and computation time is acceptable.</p>
+</section>
+<section id="code-documentation">
+<h2>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h2>
+<p>The interface to the Hungarian algorithm is implemented in <code class="docutils literal notranslate"><span class="pre">association_functions.hpp</span></code>
+and the underlying implementation in <code class="docutils literal notranslate"><span class="pre">hungarian_algorithm.hpp</span></code>.</p>
+<section id="function-definition">
+<h3>Function Definition<a class="headerlink" href="#function-definition" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">ufil</span>
+<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">association</span>
+<span class="p">{</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">hungarian</span><span class="p">(</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">type</span><span class="o">::</span><span class="n">CostMatrix</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">cost_matrix</span><span class="p">,</span><span class="w"> </span><span class="n">type</span><span class="o">::</span><span class="n">AssignmentMatrix</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">assignment_matrix</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">n_rows</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cost_matrix</span><span class="p">.</span><span class="n">rows</span><span class="p">();</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">n_cols</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cost_matrix</span><span class="p">.</span><span class="n">cols</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Resize and initialize assignment matrix</span>
+<span class="w">  </span><span class="n">assignment_matrix</span><span class="p">.</span><span class="n">resize</span><span class="p">(</span><span class="n">n_rows</span><span class="p">,</span><span class="w"> </span><span class="n">n_cols</span><span class="p">);</span>
+<span class="w">  </span><span class="n">assignment_matrix</span><span class="p">.</span><span class="n">setZero</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// No assignment if matrix is empty</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="p">(</span><span class="n">n_rows</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">n_cols</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="k">return</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="c1">// Create and solve assignment problem with hungarian algorithm</span>
+<span class="w">  </span><span class="k">auto</span><span class="w"> </span><span class="n">problem</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">HungarianAlgorithm</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">);</span>
+<span class="w">  </span><span class="n">problem</span><span class="p">.</span><span class="n">SolveAssignmentProblem</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Set assignment matrix with solution</span>
+<span class="w">  </span><span class="n">problem</span><span class="p">.</span><span class="n">GetAssignmentMatrix</span><span class="p">(</span><span class="n">assignment_matrix</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace association</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace ufil</span>
+</pre></div>
+</div>
+</section>
+<section id="example-usage">
+<h3>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ufil_object_tracking/ufil_object_tracking.hpp&gt;</span>
+
+<span class="c1">// Get cost matrix and prepare assignment matrix buffer</span>
+
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">AssignmentMatrix</span><span class="w"> </span><span class="n">assignment_matrix</span><span class="p">;</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">association</span><span class="o">::</span><span class="n">hungarian</span><span class="p">(</span><span class="n">cost_matrix</span><span class="p">,</span><span class="w"> </span><span class="n">assignment_matrix</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Assignment Matrix:&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">assignment_matrix</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><cite>cost_matrix</cite>: The cost matrix to be used for hungarian assignment.</p></li>
+<li><p><cite>assignment_matrix</cite>: The output assignment matrix.</p></li>
+</ul>
+</section>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<ol class="upperalpha simple" start="18">
+<li><p>Burkard, M. Dell’Amico, S. and Martello, “Assignment Problems: Revised”, Society for Industrial and Applied Mathematics (SIAM), 2012</p></li>
+</ol>
+<p>Reference Implementation: M. Emam, <a class="reference external" href="https://github.com/mxemam/hungarianAlgorithm">https://github.com/mxemam/hungarianAlgorithm</a>, 2020</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="association.html" class="btn btn-neutral float-left" title="Association Methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lapjv_association.html" class="btn btn-neutral float-right" title="Jonker–Volgenant Algorithm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

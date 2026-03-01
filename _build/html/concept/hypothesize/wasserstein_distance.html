@@ -1,0 +1,294 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wasserstein Distance &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Intersection over Union Distance" href="intersection_over_union_distance.html" />
+    <link rel="prev" title="Mahalanobis Distance" href="mahalanobis_distance.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/models.html">Motion Models</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="hypothesize.html">Hypothesize Measures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="euclidean_distance.html">Euclidean Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mahalanobis_distance.html">Mahalanobis Distance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Wasserstein Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="intersection_over_union_distance.html">Intersection over Union Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="hypothesize.html">Hypothesize Measures</a></li>
+      <li class="breadcrumb-item active">Wasserstein Distance</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/hypothesize/wasserstein_distance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="wasserstein-distance">
+<span id="id1"></span><h1>Wasserstein Distance<a class="headerlink" href="#wasserstein-distance" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Wasserstein distance is a statistical metric that measures the distance
+between two probability distributions. It originates from optimal transport
+theory and is also known as the Earth Mover’s Distance.</p>
+<p>In the general case, computing the Wasserstein distance requires solving an
+optimal transport optimization problem. However, when both distributions are
+Gaussian, the 2-Wasserstein distance admits a closed-form analytical solution.
+Ufil implements this closed-form solution for Gaussian state and measurement
+distributions.</p>
+<p>For two Gaussian distributions
+<span class="math notranslate nohighlight">\(\mathcal{N}(\pmb{\mu}_1, \pmb{C}_1)\)</span> and
+<span class="math notranslate nohighlight">\(\mathcal{N}(\pmb{\mu}_2, \pmb{C}_2)\)</span>,
+the closed-form 2-Wasserstein distance is:</p>
+<div class="math notranslate nohighlight">
+\[d_{W} =
+\sqrt{
+    \|\pmb{\mu}_1 - \pmb{\mu}_2\|^2
+    +
+    \operatorname{tr}
+    \left(
+        \pmb{C}_1 + \pmb{C}_2
+        -
+        2 \left(
+            \pmb{C}_1^{1/2}
+            \pmb{C}_2
+            \pmb{C}_1^{1/2}
+        \right)^{1/2}
+    \right)
+}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\pmb{\mu}_1\)</span>, <span class="math notranslate nohighlight">\(\pmb{\mu}_2\)</span> are the mean vectors</p></li>
+<li><p><span class="math notranslate nohighlight">\(\pmb{C}_1\)</span>, <span class="math notranslate nohighlight">\(\pmb{C}_2\)</span> are the covariance matrices</p></li>
+<li><p><span class="math notranslate nohighlight">\(\operatorname{tr}(\cdot)\)</span> denotes the matrix trace</p></li>
+<li><p><span class="math notranslate nohighlight">\((\cdot)^{1/2}\)</span> is the symmetric matrix square root</p></li>
+</ul>
+</section>
+<section id="interpretation">
+<h2>Interpretation<a class="headerlink" href="#interpretation" title="Link to this heading"></a></h2>
+<p>The Wasserstein distance consists of two components:</p>
+<ol class="arabic simple">
+<li><p><strong>Mean term</strong> — squared Euclidean distance between the means.</p></li>
+<li><p><strong>Covariance term</strong> — geometric difference between uncertainty ellipsoids.</p></li>
+</ol>
+<p>Unlike the Mahalanobis distance, which evaluates compatibility under a shared
+covariance assumption, the Wasserstein distance symmetrically compares two
+full Gaussian distributions. Differences in uncertainty shape directly
+influence the result.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The computation requires matrix square roots of positive semi-definite
+matrices. Numerical instability may occur if covariance matrices are
+ill-conditioned. Matrix square root operations are computationally more
+expensive than matrix inversion.</p>
+</div>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>Requires positive semi-definite covariance matrices.</p></li>
+<li><p>Computationally heavier than Mahalanobis distance.</p></li>
+<li><p>Matrix square root operations dominate runtime.</p></li>
+<li><p>Numerical stability depends on the implementation of <code class="docutils literal notranslate"><span class="pre">matrix_sqrt</span></code>.</p></li>
+</ul>
+</section>
+<section id="selection-note">
+<h2>Selection Note<a class="headerlink" href="#selection-note" title="Link to this heading"></a></h2>
+<p>The Wasserstein distance is a good choice when:</p>
+<ul class="simple">
+<li><p>A symmetric distribution-to-distribution metric is required.</p></li>
+<li><p>Differences in uncertainty shape should influence association.</p></li>
+<li><p>A geometrically meaningful metric is preferred over likelihood-based measures.</p></li>
+</ul>
+<p>For high-rate real-time systems, the additional computational load should be
+evaluated carefully.</p>
+<section id="code-documentation">
+<h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h3>
+<p>The Wasserstein distance is implemented in Ufil as part of its association
+process. It is used to create a cost matrix that helps in optimal
+measurement-to-track assignments.</p>
+<p>The function is located in <code class="docutils literal notranslate"><span class="pre">hypothesizer_functions.hpp</span></code>.</p>
+</section>
+</section>
+<section id="function-definition">
+<h2>Function Definition<a class="headerlink" href="#function-definition" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">ufil</span>
+<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">association</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">wasserstein</span><span class="p">(</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">TrackType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">track</span><span class="p">,</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">measurement</span><span class="p">,</span>
+<span class="w">  </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">StateType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">track</span><span class="p">.</span><span class="n">currentState</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Compute difference term (handles periodic variables internally)</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Vector</span><span class="o">&lt;</span><span class="n">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="o">::</span><span class="n">Size</span><span class="o">&gt;</span><span class="w"> </span><span class="n">difference</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">ufil</span><span class="o">::</span><span class="n">difference</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="p">,</span>
+<span class="w">      </span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">StateType</span><span class="o">&gt;</span><span class="p">(</span><span class="n">measurement</span><span class="p">,</span><span class="w"> </span><span class="n">state</span><span class="p">);</span>
+
+<span class="w">  </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">diff_term</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">difference</span><span class="p">.</span><span class="n">squaredNorm</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="n">H</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">ufil</span><span class="o">::</span><span class="n">generateMeasurmentMatrix</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="p">,</span>
+<span class="w">      </span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">StateType</span><span class="o">&gt;</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Project state covariance into measurement space</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">SquareMatrix</span><span class="o">&lt;</span><span class="n">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="o">::</span><span class="n">Size</span><span class="o">&gt;</span><span class="w"> </span><span class="n">C1</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">H</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">covariance</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">H</span><span class="p">.</span><span class="n">transpose</span><span class="p">();</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">SquareMatrix</span><span class="o">&lt;</span><span class="n">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="o">::</span><span class="n">Size</span><span class="o">&gt;</span><span class="w"> </span><span class="n">C2</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">measurement</span><span class="p">.</span><span class="n">covariance</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Compute matrix square roots</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">DynamicMatrix</span><span class="w"> </span><span class="n">sqrt_C1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">matrix_sqrt</span><span class="p">(</span><span class="n">C1</span><span class="p">);</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">SquareMatrix</span><span class="o">&lt;</span><span class="n">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="o">::</span><span class="n">Size</span><span class="o">&gt;</span><span class="w"> </span><span class="n">M</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">sqrt_C1</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">C2</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sqrt_C1</span><span class="p">;</span>
+
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">DynamicMatrix</span><span class="w"> </span><span class="n">sqrt_M</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">matrix_sqrt</span><span class="p">(</span><span class="n">M</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// Compute trace term</span>
+<span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">trace_term</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="p">(</span><span class="n">C1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">C2</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mf">2.0f</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">sqrt_M</span><span class="p">).</span><span class="n">trace</span><span class="p">();</span>
+
+<span class="w">  </span><span class="c1">// Final Wasserstein distance</span>
+<span class="w">  </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sqrt</span><span class="p">(</span><span class="n">trace_term</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">diff_term</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace association</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace ufil</span>
+</pre></div>
+</div>
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ufil_object_tracking/ufil_object_tracking.hpp&gt;</span>
+
+<span class="c1">// Get track and measurement</span>
+
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">association</span><span class="o">::</span><span class="n">wasserstein</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">measurement</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">);</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Wasserstein Distance: &quot;</span>
+<span class="w">          </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>track</cite>: The track containing the estimated state.</p></li>
+<li><p><cite>measurement</cite>: The measurement to compare against the track’s state.</p></li>
+<li><p><cite>distance</cite>: Output parameter storing the computed Mahalanobis distance.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="mahalanobis_distance.html" class="btn btn-neutral float-left" title="Mahalanobis Distance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="intersection_over_union_distance.html" class="btn btn-neutral float-right" title="Intersection over Union Distance" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

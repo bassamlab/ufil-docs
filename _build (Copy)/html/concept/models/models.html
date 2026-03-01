@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Motion Models &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Random Walk Model" href="random_walk.html" />
+    <link rel="prev" title="Existence Probability Fusion" href="../updater/existence/existence_fusion.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Motion Models</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="random_walk.html">Random Walk Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_velocity.html">Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_velocity.html">Extended Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_acceleration.html">Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_acceleration.html">Extended Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_velocity.html">Constant Turn Rate and Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_acceleration.html">Constant Turn Rate and Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bicycle_model.html">Bicycle Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+      <li class="breadcrumb-item active">Motion Models</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/models/models.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="motion-models">
+<span id="models"></span><h1>Motion Models<a class="headerlink" href="#motion-models" title="Link to this heading"></a></h1>
+<p>This section presents different motion models used in tracking and state estimation, categorized into linear and nonlinear models based on their mathematical properties. Most of the equiations and descriptions in this section are based on the work of Schubert et al. [1] and Schramm et al. [2]. Some model formulations and process noise descriptions are inspired by Bar-Shalom et al. [3].</p>
+<section id="linear-models">
+<h2>Linear Models<a class="headerlink" href="#linear-models" title="Link to this heading"></a></h2>
+<p>These models assume a linear state transition function, making them suitable for applications where motion is well-approximated by linear equations.</p>
+<section id="random-walk-model">
+<h3>Random Walk Model<a class="headerlink" href="#random-walk-model" title="Link to this heading"></a></h3>
+<p>The random walk (RW) model assumes that an object’s position changes over time in an unpredictable manner, with no specific direction or velocity. It is useful for modeling erratic motion or when little prior information is available.</p>
+<p><a class="reference internal" href="random_walk.html#random-walk"><span class="std std-ref">Read more about the Random Walk model</span></a></p>
+</section>
+<section id="constant-velocity-model">
+<h3>Constant Velocity Model<a class="headerlink" href="#constant-velocity-model" title="Link to this heading"></a></h3>
+<p>The constant velocity (CV) model assumes an object moves in a straight line with a fixed velocity, with no acceleration or external forces. It is useful for tracking objects with smooth, predictable motion.</p>
+<p><a class="reference internal" href="constant_velocity.html#constant-velocity"><span class="std std-ref">Read more about the Constant Velocity model</span></a></p>
+</section>
+<section id="extended-constant-velocity-model">
+<h3>Extended Constant Velocity Model<a class="headerlink" href="#extended-constant-velocity-model" title="Link to this heading"></a></h3>
+<p>The extended constant velocity (ECV) model assumes an object moves along curved trajectories, with no acceleration or external forces. It is useful for tracking objects with smooth, predictable motion and little restriction on turning.</p>
+<p><a class="reference internal" href="extended_constant_velocity.html#extended-constant-velocity"><span class="std std-ref">Read more about the Extended Constant Velocity model</span></a></p>
+</section>
+<section id="constant-acceleration-model">
+<h3>Constant Acceleration Model<a class="headerlink" href="#constant-acceleration-model" title="Link to this heading"></a></h3>
+<p>The constant acceleration (CA) model extends the constant velocity model by incorporating acceleration as part of the system state, making it suitable for applications involving objects that undergo smooth acceleration.</p>
+<p><a class="reference internal" href="constant_acceleration.html#constant-acceleration"><span class="std std-ref">Read more about the Constant Acceleration model</span></a></p>
+</section>
+<section id="extended-constant-acceleration-model">
+<h3>Extended Constant Acceleration Model<a class="headerlink" href="#extended-constant-acceleration-model" title="Link to this heading"></a></h3>
+<p>The extended constant velocity (ECA) model assumes an object moves along curved trajectories, with no jerk or external forces. It is useful for tracking objects with smooth, predictable motion and little restriction on turning.</p>
+<p><a class="reference internal" href="extended_constant_acceleration.html#extended-constant-acceleration"><span class="std std-ref">Read more about the Extended Constant Acceleration model</span></a></p>
+</section>
+</section>
+<section id="nonlinear-models">
+<h2>Nonlinear Models<a class="headerlink" href="#nonlinear-models" title="Link to this heading"></a></h2>
+<p>These models account for nonlinearity in motion, making them better suited for objects undergoing turning motions or more complex dynamics.</p>
+<section id="constant-turn-rate-and-velocity-model">
+<h3>Constant Turn Rate and Velocity Model<a class="headerlink" href="#constant-turn-rate-and-velocity-model" title="Link to this heading"></a></h3>
+<p>The constant turn rate and velocity (CTRV) model extends the constant velocity model by incorporating a turn rate, allowing for curved trajectories. However, it requires a reliable heading angle estimation, as errors in heading propagate significantly to position.</p>
+<p><a class="reference internal" href="constant_turn_rate_velocity.html#constant-turn-rate-velocity"><span class="std std-ref">Read more about the Constant Turn Rate and Velocity model</span></a></p>
+</section>
+<section id="constant-turn-rate-and-acceleration-model">
+<h3>Constant Turn Rate and Acceleration Model<a class="headerlink" href="#constant-turn-rate-and-acceleration-model" title="Link to this heading"></a></h3>
+<p>The constant turn rate and acceleration (CTRA) model extends the constant acceleration model by incorporating a turn rate. This allows for more realistic modeling of objects undergoing both acceleration and turning.</p>
+<p><a class="reference internal" href="constant_turn_rate_acceleration.html#constant-turn-rate-acceleration"><span class="std std-ref">Read more about the Constant Turn Rate and Acceleration model</span></a></p>
+</section>
+<section id="bicycle-model">
+<h3>Bicycle Model<a class="headerlink" href="#bicycle-model" title="Link to this heading"></a></h3>
+<p>The bicycle model provides a more physically realistic representation of vehicle motion, accounting for front-wheel steering and slip angles. It is widely used in autonomous driving and robotics applications.</p>
+<p><a class="reference internal" href="bicycle_model.html#bicycle-model"><span class="std std-ref">Read more about the Bicycle model</span></a></p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="random_walk.html">Random Walk Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constant_velocity.html">Constant Velocity Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extended_constant_velocity.html">Extended Constant Velocity Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constant_acceleration.html">Constant Acceleration Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extended_constant_acceleration.html">Extended Constant Acceleration Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constant_turn_rate_velocity.html">Constant Turn Rate and Velocity Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="constant_turn_rate_acceleration.html">Constant Turn Rate and Acceleration Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bicycle_model.html">Bicycle Model</a></li>
+</ul>
+</div>
+<p>[1] R. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” International Conference on Information Fusion, Cologne, Germany, 2008
+[2] D. Schramm, M. Hiller, R. Bardini, “Vehicle Dynamics 2nd Edition”, Springer, Berlin, 2018
+[3] Y. Bar-Shalom, X. R. Li, and T. Kirubarajan, “Estimation with Applications to Tracking and Navigation,” John Wiley &amp; Sons, 2001</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../updater/existence/existence_fusion.html" class="btn btn-neutral float-left" title="Existence Probability Fusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="random_walk.html" class="btn btn-neutral float-right" title="Random Walk Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

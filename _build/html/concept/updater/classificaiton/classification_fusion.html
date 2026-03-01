@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Classification Fusion &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Existence" href="../existence/existence.html" />
+    <link rel="prev" title="Classification" href="classificaiton.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../updater.html">Updater</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../state/state.html">State</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dimension/dimension.html">Dimension</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="classificaiton.html">Classification</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Classification Fusion</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../existence/existence.html">Existence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models/models.html">Motion Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="../updater.html">Updater</a></li>
+          <li class="breadcrumb-item"><a href="classificaiton.html">Classification</a></li>
+      <li class="breadcrumb-item active">Classification Fusion</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/concept/updater/classificaiton/classification_fusion.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="classification-fusion">
+<h1>Classification Fusion<a class="headerlink" href="#classification-fusion" title="Link to this heading"></a></h1>
+<p>The classification Fusion makes use of a sensor-to-global fusion strategy.
+For that the Dempster Shafer Theorem is used as described by the work of Aeberhard.
+First the mutually exclusive classes for discernment <span class="math notranslate nohighlight">\(\Theta\)</span> with possible Objects got defined as</p>
+<ul class="simple">
+<li><p>Car</p></li>
+<li><p>Truck</p></li>
+<li><p>Motorcycle</p></li>
+<li><p>Pedestrian</p></li>
+<li><p>Bicycle</p></li>
+<li><p>Stationary</p></li>
+</ul>
+<p>Other is not included as it is not a class for an identifiable object and only exists as placeholder for objects that do not have the characteristics of any other class.
+As we have six classes 64 combinations for the frame of discernment would be possible. We reduce those powerset to the following:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}2^\Theta_r \subset 2^\Theta = \{\emptyset, \{C_{Car}\}, \{C_{Truck}\}, \{C_{Motorcycle}\}, \{C_{Pedestrian}\}, \{C_{Bicycle}\}, \{C_{Stationary}\},\\\{C_{Vehicle}\}, \{C_{VRU}\}, \{C_{Vehicle}, C_{Stationary}\}, \{C_{VRU}, C_{Stationary}\}, \Theta\}\end{aligned}\end{align} \]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\{C_{Vehicle}\} = \{C_{Car}, C_{Truck}, C_{Motorcycle}\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{C_{VRU}\} = \{C_{Pedestrian}, C_{Bicycle}\}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\{C_{Traffic}\} = \{C_{Vehicle}, C_{VRU}\}\)</span></p></li>
+</ul>
+<p>The set vehicle defines a so called “super class” that contains all objects that can reach high speeds and the set VRU is for vulnerable road users that are not protected by their vehicles.
+The set traffic contains both since all of those classes participate in the traffic. The super sets are very useful for sensors that are not that great in differentiating each class but in observing the different features the supersets inherit.</p>
+<p>The basic belief assignments, from now on referred to as bbas, are now defined for our reduced powerset as</p>
+<div class="math notranslate nohighlight">
+\[m:2^\Theta_r \rightarrow [0, 1]\]</div>
+<p>The sum of these bbas add up to one and are tracked over time by the central fusion.
+Then the new sensor evidence is combined into the new  global basic belief assignment by</p>
+<div class="math notranslate nohighlight">
+\[m^G_k(C) = \frac{\sum_{A \cap B = C} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\]</div>
+<p>Now as we don’t trust every sensor completely and also some differently with their ability to recognize classes or in general we introduce a trust factor which reduces the bbas of those sensors.
+Each class has a separate trust factor and those are either given by the sensor or calculated by experiment.
+Using those we now calculate the bbas of the sensor like</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(m^i_k(\{C_{Car}\}) = p^i_{trust}(C_{Car}) * p^i_k(C_{Car})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^i_k(\{C_{Truck}\}) = p^i_{trust}(C_{Truck}) * p^i_k(C_{Truck})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^i_k(\{C_{Motorcycle}\}) = p^i_{trust}(C_{Motorcycle}) * p^i_k(C_{Motorcycle})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^i_k(\{C_{Pedestrian}\}) = p^i_{trust}(C_{Pedestrian}) * p^i_k(C_{Pedestrian})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^i_k(\{C_{Bicycle}\}) = p^i_{trust}(C_{Bicycle}) * p^i_k(C_{Bicycle})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^i_k(\{C_{Stationary}\}) = p^i_{trust}(C_{Stationary}) * p^i_k(C_{Stationary})\)</span></p></li>
+</ol>
+<p>Now we have some remaining evidence which will be used for our super classes.</p>
+<p>For that we additionally add a move probability which will be calculated via:</p>
+<div class="math notranslate nohighlight">
+\[ \begin{align}\begin{aligned}velocity = |v_x| + |v_y|\\p^i_{moved} = 1 - e^{-1 * 2 * velocity}\end{aligned}\end{align} \]</div>
+<p>For the calculation of the bbas we need the probabilities of Vehicle and VRU. Those we calculate as following:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(p^i_{C_{Vehicle}} = \frac{m^i_k(\{C_{Car}\}) + m^i_k(\{C_{Truck}\}) + m^i_k(\{C_{Motorcycle}\})}{m^i_k(\{C_{Car}\}) + m^i_k(\{C_{Truck}\}) + m^i_k(\{C_{Motorcycle}\}) + m^i_k(\{C_{Pedestrian}\}) + m^i_k(\{C_{Bicycle}\}) }\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(p^i_{C_{VRU}} = \frac{m^i_k(\{C_{Pedestrian}\}) + m^i_k(\{C_{Bicycle}\})}{m^i_k(\{C_{Car}\}) + m^i_k(\{C_{Truck}\}) + m^i_k(\{C_{Motorcycle}\}) + m^i_k(\{C_{Pedestrian}\}) + m^i_k(\{C_{Bicycle}\}) }\)</span></p></li>
+</ol>
+<p>Now we calculate the bbas for the super classes:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(m^i_k(C_{Vehicle}) = p^i_{moved} * p^i_{C_{Vehicle}} * [(1 - p_{trust}(C_{Car})) * p^i_k(C_{Car})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ (1 - p_{trust}(C_{Truck})) * p^i_k(C_{Truck}) + (1 - p_{trust}(C_{Motorcycle})) * p^i_k(C_{Motorcycle})]\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(m^i_k(C_{VRU}) = p^i_{moved} * p^i_{C_{VRU}} * [(1 - p_{trust}(C_{Pedestrian})) * p^i_k(C_{Pedestrian})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ (1 - p_{trust}(C_{Bicycle})) * p^i_k(C_{Bicycle})]\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(m^i_k(C_{Traffic}) = p^i_{moved} * p^i_{C_{VRU}} * [(1 - p_{trust}(C_{Car})) * p^i_k(C_{Car})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ (1 - p_{trust}(C_{Truck})) * p^i_k(C_{Truck}) + (1 - p_{trust}(C_{Motorcycle})) * p^i_k(C_{Motorcycle})]\)</span>
+<span class="math notranslate nohighlight">\(+ p^i_{moved} * p^i_{C_{Vehicle}} * [(1 - p_{trust}(C_{Pedestrian})) * p^i_k(C_{Pedestrian})\)</span>
+<span class="math notranslate nohighlight">\(+ (1 - p_{trust}(C_{Bicycle})) * p^i_k(C_{Bicycle})]\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(m^i_k(C_{Vehicle}, C_{Stationary}) = (1 -p^i_{moved}) * p^i_{C_{Vehicle}} * [(1 - p_{trust}(C_{Car})) * p^i_k(C_{Car})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ (1 - p_{trust}(C_{Truck})) * p^i_k(C_{Truck}) + (1 - p_{trust}(C_{Motorcycle})) * p^i_k(C_{Motorcycle})]\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(m^i_k(C_{VRU}, C_{Stationary}) = (1 -p^i_{moved}) * p^i_{C_{VRU}} * [(1 - p_{trust}(C_{Pedestrian})) * p^i_k(C_{Pedestrian})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ (1 - p_{trust}(C_{Bicycle})) * p^i_k(C_{Bicycle})]\)</span></p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>As the next step we will use the Dempster Shafer rule as declared above:</p>
+<ol class="arabic simple">
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Car}) = \frac{\sum_{A \cap B = C_{Car}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Truck}) = \frac{\sum_{A \cap B = C_{Truck}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Motorcycle}) = \frac{\sum_{A \cap B = C_{Motorcycle}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Pedestrian}) = \frac{\sum_{A \cap B = C_{Pedestrian}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Bicycle}) = \frac{\sum_{A \cap B = C_{Bicycle}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Stationary}) = \frac{\sum_{A \cap B = C_{Stationary}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Vehicle}) = \frac{\sum_{A \cap B = C_{Vehicle}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{VRU}) = \frac{\sum_{A \cap B = C_{VRU}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Traffic}) = \frac{\sum_{A \cap B = C_{Traffic}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{Vehicle}, C_{Stationary}) = \frac{\sum_{A \cap B = C_{Vehicle}, C_{Stationary}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{VRU}, C_{Stationary}) = \frac{\sum_{A \cap B = C_{VRU}, C_{Stationary}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(m^G_k(C_{\Theta}) = \frac{\sum_{A \cap B = C_{\Theta}} m^G_{k-1} (A) * m^i_k (B)}{1 - \sum_{A \cap B = \emptyset} m^G_{k-1} (A) * m^i_k (B)}\)</span></p></li>
+</ol>
+<p>Now we need to convert the vector bbas into the classification vector. For that we use the Pignistic transformation but without containing the frame of discernment.</p>
+<div class="math notranslate nohighlight">
+\[BetP(A) = \sum_{B \subseteqq \Theta B\neq \Theta} \frac{|A \cap B|}{|B|} * m(B)\]</div>
+<p>where <span class="math notranslate nohighlight">\(m^G(\Theta)\)</span> should be equivalent to <span class="math notranslate nohighlight">\(p^G_k(C_{Other})\)</span></p>
+<p>Now the general formula for the fused probabilites is</p>
+<div class="math notranslate nohighlight">
+\[p^G_k(C_i) = BetP(\{C_i\}) = \sum_{B \subseteqq \Theta B\neq \Theta} \frac{|\{C_i\} \cap B|}{|B|} * m^G_k(B)\]</div>
+<p>After evaluation the probabilities for the classes are now as follows:</p>
+<ol class="arabic simple">
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p^G_k(C_{Car}) = m^G_k(\{C_{Car}\}) + \frac{1}{3} * m^G_k(\{C_{Vehicle}\}) + \frac{1}{5} * m^G_k(\{C_{Traffic}\})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ \frac{1}{4} * m^G_k(\{C_{Vehicle}, C_{Stationary}\})\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p^G_k(C_{Truck}) = m^G_k(\{C_{Truck}\}) + \frac{1}{3} * m^G_k(\{C_{Vehicle}\}) + \frac{1}{5} * m^G_k(\{C_{Traffic}\})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ \frac{1}{4} * m^G_k(\{C_{Vehicle}, C_{Stationary}\})\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p^G_k(C_{Motorcycle}) = m^G_k(\{C_{Motorcycle}\}) + \frac{1}{3} * m^G_k(\{C_{Vehicle}\}) + \frac{1}{5} * m^G_k(\{C_{Traffic}\})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ \frac{1}{4} * m^G_k(\{C_{Vehicle}, C_{Stationary}\})\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p^G_k(C_{Pedestrian}) = m^G_k(\{C_{Pedestrian}\}) + \frac{1}{2} * m^G_k(\{C_{VRU}\}) + \frac{1}{5} * m^G_k(\{C_{Traffic}\})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ \frac{1}{3} * m^G_k(\{C_{VRU}, C_{Stationary}\})\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p^G_k(C_{Bicycle}) = m^G_k(\{C_{Bicycle}\}) + \frac{1}{2} * m^G_k(\{C_{VRU}\}) + \frac{1}{5} * m^G_k(\{C_{Traffic}\})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ \frac{1}{3} * m^G_k(\{C_{VRU}, C_{Stationary}\})\)</span></p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt><span class="math notranslate nohighlight">\(p^G_k(C_{Stationary}) = m^G_k(\{C_{Stationary}\}) + \frac{1}{4} * m^G_k(\{C_{Vehicle}, C_{Stationary}\})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ \frac{1}{3} * m^G_k(\{C_{VRU}, C_{Stationary}\})\)</span></p>
+</dd>
+</dl>
+</li>
+</ol>
+<p>and the probability for the class other now is</p>
+<dl class="simple">
+<dt><span class="math notranslate nohighlight">\(1 - [p^G_k(C_{Car}) + p^G_k(C_{Truck}) + p^G_k(C_{Motorcycle}) + p^G_k(C_{Pedestrian})\)</span></dt><dd><p><span class="math notranslate nohighlight">\(+ p^G_k(C_{Bicycle}) + p^G_k(C_{Stationary})]\)</span></p>
+</dd>
+</dl>
+<p>With that the classification vector adds up to one and we are finished.</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Link to this heading"></a></h2>
+<p>M. Aeberhard, “Object-level fusion for surround environment perception in automated driving applications,” VDI Verlag, 2017</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="classificaiton.html" class="btn btn-neutral float-left" title="Classification" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../existence/existence.html" class="btn btn-neutral float-right" title="Existence" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

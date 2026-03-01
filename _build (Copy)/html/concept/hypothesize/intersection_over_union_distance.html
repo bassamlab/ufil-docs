@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Intersection over Union Distance &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Association Methods" href="../association/association.html" />
+    <link rel="prev" title="Wasserstein Distance" href="wasserstein_distance.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/models.html">Motion Models</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="hypothesize.html">Hypothesize Measures</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="euclidean_distance.html">Euclidean Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mahalanobis_distance.html">Mahalanobis Distance</a></li>
+<li class="toctree-l3"><a class="reference internal" href="wasserstein_distance.html">Wasserstein Distance</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Intersection over Union Distance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="hypothesize.html">Hypothesize Measures</a></li>
+      <li class="breadcrumb-item active">Intersection over Union Distance</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/hypothesize/intersection_over_union_distance.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="intersection-over-union-distance">
+<span id="id1"></span><h1>Intersection over Union Distance<a class="headerlink" href="#intersection-over-union-distance" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>The Intersection over Union distance (IoU) is a commonly used metric for measuring the spatial overlap between two objects in n-dimensional space. Unlike Euclidean or Mahalanobis distance, it considers the shape of the objects involved, making it especially useful when object dimensions are significant. It is frequently applied in bounding box regression—for example, in object tracking—to quantify how much a predicted bounding box overlaps with a ground truth measurement. This overlap metric is essential for associating objects and enhances overall tracking accuracy. In the case of Ufil, we scale and invert the value so that lower values indicate stronger matches, which aligns with our association logic. The Intersection over Union is defined as</p>
+<div class="math notranslate nohighlight">
+\[d_{IoU} = (1 - \frac{Intersection(A, B)}{Union (A, B)}) \cdot 100,\]</div>
+<p>where <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> are two n-dimensional bounding boxes.</p>
+<p>Compared to other distances like Euclidean or Mahalanobis, the IoU is limited to <span class="math notranslate nohighlight">\(d_{IoU} \in [0,100]\)</span>, where <span class="math notranslate nohighlight">\(100\)</span> means no overlap and <span class="math notranslate nohighlight">\(0\)</span> means complete overlap.</p>
+</section>
+<section id="limitations">
+<h2>Limitations<a class="headerlink" href="#limitations" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>It does not account for measurement uncertainties or correlations.</p></li>
+<li><p>Less computationally efficient than Euclidean distance.</p></li>
+</ul>
+</section>
+<section id="selection-note">
+<h2>Selection Note<a class="headerlink" href="#selection-note" title="Link to this heading"></a></h2>
+<p>Use the Intersection over Union distance whenever both state and dimensional data (width, length) are available and covariance matrices can be neglected.</p>
+<p>If your application requires uncertainty information use distance measurements like the Malahanobis distance which explicitly incorporates covariance information.</p>
+<section id="code-documentation">
+<h3>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h3>
+<p>The IoU distance is implemented in Ufil. It is used to construct a cost matrix for associating measurements with tracks, supporting optimal data association.
+The implementation resides in <cite>hypothesizer_functions.hpp</cite>.</p>
+</section>
+</section>
+<section id="function-definition">
+<h2>Function Definition<a class="headerlink" href="#function-definition" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="k">namespace</span><span class="w"> </span><span class="nn">ufil</span>
+<span class="p">{</span>
+<span class="k">namespace</span><span class="w"> </span><span class="nn">association</span>
+<span class="p">{</span>
+
+<span class="k">template</span><span class="o">&lt;</span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">&gt;</span>
+<span class="kt">void</span><span class="w"> </span><span class="n">intersection_over_union_2D</span><span class="p">(</span>
+<span class="k">const</span><span class="w"> </span><span class="n">TrackType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="k">typename</span><span class="w"> </span><span class="nc">TrackType</span><span class="o">::</span><span class="n">MeasurementType</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">measurement</span><span class="p">,</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">distance</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">x_detection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurement</span><span class="p">.</span><span class="n">x</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">y_detection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurement</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">length_detection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurement</span><span class="p">.</span><span class="n">dimension</span><span class="p">().</span><span class="n">length</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">width_detection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurement</span><span class="p">.</span><span class="n">dimension</span><span class="p">().</span><span class="n">width</span><span class="p">();</span>
+<span class="k">if</span><span class="p">(</span><span class="n">length_detection</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0f</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">width_detection</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;IoU: Dimension can&#39;t be &lt;= 0&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">yaw_detection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">measurement</span><span class="p">.</span><span class="n">yaw</span><span class="p">();</span>
+
+
+<span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">polygon</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">detection_polygon</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">create_rotated_rectangle</span><span class="p">(</span><span class="n">x_detection</span><span class="p">,</span><span class="w"> </span><span class="n">y_detection</span><span class="p">,</span><span class="w"> </span><span class="n">length_detection</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">width_detection</span><span class="p">,</span><span class="w"> </span><span class="n">yaw_detection</span><span class="p">);</span>
+
+<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">track</span><span class="p">.</span><span class="n">currentState</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">dimension</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">track</span><span class="p">.</span><span class="n">currentDimension</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">x_track</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">x</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">y_track</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">y</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">length_track</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dimension</span><span class="p">.</span><span class="n">length</span><span class="p">();</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">width_track</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">dimension</span><span class="p">.</span><span class="n">width</span><span class="p">();</span>
+<span class="k">if</span><span class="p">(</span><span class="n">length_track</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0f</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="n">width_track</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;IoU: Dimension can&#39;t be &lt;= 0&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">const</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">yaw_track</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">state</span><span class="p">.</span><span class="n">yaw</span><span class="p">();</span>
+<span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">polygon</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">track_polygon</span><span class="w"> </span><span class="o">=</span>
+<span class="w">    </span><span class="n">create_rotated_rectangle</span><span class="p">(</span><span class="n">x_track</span><span class="p">,</span><span class="w"> </span><span class="n">y_track</span><span class="p">,</span><span class="w"> </span><span class="n">length_track</span><span class="p">,</span>
+<span class="w">                                        </span><span class="n">width_track</span><span class="p">,</span><span class="w"> </span><span class="n">yaw_track</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">polygon</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;&gt;</span><span class="w"> </span><span class="n">buffer</span><span class="p">;</span>
+<span class="n">bg</span><span class="o">::</span><span class="n">intersection</span><span class="p">(</span><span class="n">detection_polygon</span><span class="p">,</span><span class="w"> </span><span class="n">track_polygon</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">buffer</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">1</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;IoU: intersection with more than one polygon is not possible&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">intersection_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">buffer</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">intersection_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">area</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
+<span class="p">}</span>
+
+
+<span class="n">buffer</span><span class="p">.</span><span class="n">clear</span><span class="p">();</span>
+<span class="n">bg</span><span class="o">::</span><span class="n">union_</span><span class="p">(</span><span class="n">detection_polygon</span><span class="p">,</span><span class="w"> </span><span class="n">track_polygon</span><span class="p">,</span><span class="w"> </span><span class="n">buffer</span><span class="p">);</span>
+
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">union_area</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">;</span>
+<span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">buffer</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">union_area</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">area</span><span class="p">(</span><span class="n">p</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span><span class="p">(</span><span class="n">union_area</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mf">0.0f</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">distance</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="mf">1.0f</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="p">(</span><span class="n">intersection_area</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">union_area</span><span class="p">))</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">;</span><span class="w">  </span><span class="c1">// intersectionOU 1 great, 0 bad</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">throw</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">runtime_error</span><span class="p">(</span><span class="s">&quot;IoU calculation failed: Union can&#39;t be 0.0&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace association</span>
+<span class="p">}</span><span class="w">  </span><span class="c1">// namespace ufil</span>
+</pre></div>
+</div>
+</section>
+<section id="helper-functions">
+<h2>Helper Functions<a class="headerlink" href="#helper-functions" title="Link to this heading"></a></h2>
+<p>It makes use of additional helper functions that handle geometric operations as creating rotated rectangles and individual points which can be found in <cite>impl/intersection_over_union_functions.hpp</cite></p>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef UFIL_OBJECT_TRACKING__ASSOCIATION__IMPL__INTERSECTION_OVER_UNION_FUNCTIONS_HPP_</span>
+<span class="cp">#define UFIL_OBJECT_TRACKING__ASSOCIATION__IMPL__INTERSECTION_OVER_UNION_FUNCTIONS_HPP_</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;vector&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;cmath&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/geometry.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/geometry/geometries/point_xy.hpp&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;boost/geometry/geometries/polygon.hpp&gt;</span>
+
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&quot;ufil_object_tracking/types/scalar.hpp&quot;</span>
+
+<span class="k">namespace</span><span class="w"> </span><span class="nn">bg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nn">boost</span><span class="o">::</span><span class="nn">geometry</span><span class="p">;</span>
+
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="w"> </span><span class="n">rotate_point</span><span class="p">(</span>
+<span class="k">const</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="p">,</span>
+<span class="k">const</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">center</span><span class="p">,</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">angle_rad</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">cos_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">cos</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">);</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">sin_p</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">sin</span><span class="p">(</span><span class="n">angle_rad</span><span class="p">);</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+
+<span class="c1">//  rotation matrix</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">x_rot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">cos_p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">sin_p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">0</span><span class="o">&gt;</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">y_rot</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sin_p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">cos_p</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">get</span><span class="o">&lt;</span><span class="mi">1</span><span class="o">&gt;</span><span class="p">(</span><span class="n">center</span><span class="p">);</span>
+
+<span class="k">return</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x_rot</span><span class="p">,</span><span class="w"> </span><span class="n">y_rot</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="kr">inline</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">polygon</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">create_rotated_rectangle</span><span class="p">(</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">y</span><span class="p">,</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">length</span><span class="p">,</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">width</span><span class="p">,</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">angle_rad</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">corners</span><span class="p">;</span>
+<span class="n">corners</span><span class="p">.</span><span class="n">reserve</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w">  </span><span class="c1">// reserve space to avoid reallocations</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">half_length</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">length</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">half_width</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">width</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="mf">2.0</span><span class="p">;</span>
+<span class="c1">// create vector</span>
+<span class="n">std</span><span class="o">::</span><span class="n">vector</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">position</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">half_length</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">half_width</span><span class="p">),</span><span class="w">  </span><span class="c1">// topLeft</span>
+<span class="w">    </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">half_length</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">half_width</span><span class="p">),</span><span class="w">  </span><span class="c1">// topRight</span>
+<span class="w">    </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">half_length</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">half_width</span><span class="p">),</span><span class="w">  </span><span class="c1">// bottomRight</span>
+<span class="w">    </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">half_length</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">half_width</span><span class="p">)</span><span class="w">  </span><span class="c1">// bottomLeft</span>
+<span class="p">};</span>
+<span class="c1">// rotate</span>
+<span class="k">for</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="k">auto</span><span class="w"> </span><span class="o">&amp;</span><span class="w"> </span><span class="n">p</span><span class="w"> </span><span class="o">:</span><span class="w"> </span><span class="n">position</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">corners</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">rotate_point</span><span class="p">(</span><span class="n">p</span><span class="p">,</span><span class="w"> </span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">y</span><span class="p">),</span>
+<span class="w">                                    </span><span class="n">angle_rad</span><span class="p">));</span>
+<span class="p">}</span>
+<span class="n">corners</span><span class="p">.</span><span class="n">emplace_back</span><span class="p">(</span><span class="n">corners</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span><span class="w">  </span><span class="c1">// otherwise polygon would be open.</span>
+<span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">polygon</span><span class="o">&lt;</span><span class="n">bg</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">d2</span><span class="o">::</span><span class="n">point_xy</span><span class="o">&lt;</span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">poly</span><span class="p">;</span>
+<span class="n">bg</span><span class="o">::</span><span class="n">assign_points</span><span class="p">(</span><span class="n">poly</span><span class="p">,</span><span class="w"> </span><span class="n">corners</span><span class="p">);</span>
+<span class="n">bg</span><span class="o">::</span><span class="n">correct</span><span class="p">(</span><span class="n">poly</span><span class="p">);</span><span class="w">  </span><span class="c1">// Ensure polygon is valid &amp; orientation is correct</span>
+<span class="k">return</span><span class="w"> </span><span class="n">poly</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="cp">#endif  </span><span class="c1">// UFIL_OBJECT_TRACKING__ASSOCIATION__IMPL__INTERSECTION_OVER_UNION_FUNCTIONS_HPP_</span>
+</pre></div>
+</div>
+</section>
+<section id="example-usage">
+<h2>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h2>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
+<span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;ufil_object_tracking/ufil_object_tracking.hpp&gt;</span>
+
+<span class="c1">// Get track and measurement</span>
+
+<span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">Scalar</span><span class="w"> </span><span class="n">distance</span><span class="p">;</span>
+<span class="n">ufil</span><span class="o">::</span><span class="n">association</span><span class="o">::</span><span class="n">intersection_over_union_2D</span><span class="p">(</span><span class="n">track</span><span class="p">,</span><span class="w"> </span><span class="n">measurement</span><span class="p">,</span><span class="w"> </span><span class="n">distance</span><span class="p">);</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Intersection over Union Distance: &quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">distance</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</pre></div>
+</div>
+</section>
+<section id="parameters">
+<h2>Parameters<a class="headerlink" href="#parameters" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><cite>track</cite>: The track containing the estimated state.</p></li>
+<li><p><cite>measurement</cite>: The measurement to compare against the track’s state.</p></li>
+<li><p><cite>distance</cite>: Output parameter storing the computed Intersection over Union distance.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="wasserstein_distance.html" class="btn btn-neutral float-left" title="Wasserstein Distance" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../association/association.html" class="btn btn-neutral float-right" title="Association Methods" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

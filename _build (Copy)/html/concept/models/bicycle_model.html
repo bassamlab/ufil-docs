@@ -1,0 +1,202 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bicycle Model &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hypothesize Measures" href="../hypothesize/hypothesize.html" />
+    <link rel="prev" title="Constant Turn Rate and Acceleration Model" href="constant_turn_rate_acceleration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="models.html">Motion Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="random_walk.html">Random Walk Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_velocity.html">Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_velocity.html">Extended Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_acceleration.html">Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_acceleration.html">Extended Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_velocity.html">Constant Turn Rate and Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_acceleration.html">Constant Turn Rate and Acceleration Model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Bicycle Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="models.html">Motion Models</a></li>
+      <li class="breadcrumb-item active">Bicycle Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/models/bicycle_model.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="bicycle-model">
+<span id="id1"></span><h1>Bicycle Model<a class="headerlink" href="#bicycle-model" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This model is currently not implemented in ufil and serves for documentation purposes only.</p>
+</div>
+<p>The <strong>bicycle model</strong> is a widely used kinematic model for vehicles and mobile robots. It captures the motion of wheeled vehicles while accounting for steering dynamics. This model is particularly useful for path planning, state estimation, and control in autonomous driving applications.</p>
+<p>Unlike simpler motion models (e.g., the <a class="reference internal" href="constant_velocity.html"><span class="doc">constant velocity (CV)</span></a> or <a class="reference internal" href="constant_turn_rate_velocity.html"><span class="doc">constant turn rate and velocity (CTRV)</span></a> models), the bicycle model considers the effects of steering angle, wheelbase, and vehicle geometry.</p>
+<section id="mathematical-formulation">
+<h2>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Link to this heading"></a></h2>
+<p>The <strong>state</strong> of the system is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x} = \begin{bmatrix} p_x \\ p_y \\ \theta \\ v \\ \delta \end{bmatrix},\end{split}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p_x, p_y\)</span> are the Cartesian coordinates of the vehicle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> is the heading angle (orientation),</p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> is the forward velocity,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\delta\)</span> is the steering angle.</p></li>
+</ul>
+</section>
+<section id="state-transition-model">
+<h2>State Transition Model<a class="headerlink" href="#state-transition-model" title="Link to this heading"></a></h2>
+<p>The nonlinear system dynamics evolve as:</p>
+<div class="math notranslate nohighlight">
+\[\dot{p}_x = v \cos(\theta)\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{p}_y = v \sin(\theta)\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{\theta} = \frac{v}{L} \tan(\delta)\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{v} = a\]</div>
+<div class="math notranslate nohighlight">
+\[\dot{\delta} = \omega,\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(L\)</span> is the wheelbase of the vehicle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(a\)</span> is the longitudinal acceleration,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the rate of change of the steering angle.</p></li>
+</ul>
+<p>Unlike linear models, the <strong>state transition function</strong> is expressed as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_{k+1} = f(\mathbf{x}_k, \mathbf{u}_k) + \mathbf{w}_k,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{u}_k = [a, \omega]\)</span> is the control input and <span class="math notranslate nohighlight">\(\mathbf{w}_k\)</span> represents process noise.</p>
+</section>
+<section id="process-noise">
+<h2>Process Noise<a class="headerlink" href="#process-noise" title="Link to this heading"></a></h2>
+<p>Since the bicycle model involves nonlinear dynamics, the process noise covariance is estimated using <strong>first-order linearization</strong> techniques such as the <strong>Extended Kalman Filter (EKF)</strong>. The noise covariance <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> is approximated as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{Q} \approx \mathbf{G} \mathbf{W} \mathbf{G}^T,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{G}\)</span> is the Jacobian of <span class="math notranslate nohighlight">\(f(\mathbf{x}, \mathbf{u})\)</span> with respect to the noise terms, and <span class="math notranslate nohighlight">\(\mathbf{W}\)</span> is the covariance of acceleration and steering rate noise.</p>
+</section>
+<section id="sensitivity-to-steering-angle-errors">
+<h2>Sensitivity to Steering Angle Errors<a class="headerlink" href="#sensitivity-to-steering-angle-errors" title="Link to this heading"></a></h2>
+<p>A key limitation of the bicycle model is its <strong>sensitivity to steering angle errors</strong>. Small errors in <span class="math notranslate nohighlight">\(\delta\)</span> can lead to significant deviations in predicted trajectories, particularly at high speeds. This sensitivity has been analyzed extensively in tracking literature (see [1] for a detailed discussion).</p>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>For a simpler approximation of vehicle motion, see the <a class="reference internal" href="constant_turn_rate_acceleration.html"><span class="doc">constant turn rate and acceleration (CTRA)</span></a> model. For a more detailed model incorporating tire forces, refer to dynamic models such as the <strong>full vehicle model</strong>.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<ol class="upperalpha simple" start="18">
+<li><p>Rajamani, “Vehicle Dynamics and Control,” Springer, 2011</p></li>
+</ol>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="constant_turn_rate_acceleration.html" class="btn btn-neutral float-left" title="Constant Turn Rate and Acceleration Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../hypothesize/hypothesize.html" class="btn btn-neutral float-right" title="Hypothesize Measures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

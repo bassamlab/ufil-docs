@@ -1,0 +1,258 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Extended Kalman Filter &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../../about.html" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+    <link rel="next" title="Dimension" href="../dimension/dimension.html" />
+    <link rel="prev" title="Kalman Filter" href="kf.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../updater.html">Updater</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="state.html">State</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="kf.html">Kalman Filter</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Extended Kalman Filter</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dimension/dimension.html">Dimension</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../classificaiton/classificaiton.html">Classification</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../existence/existence.html">Existence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../models/models.html">Motion Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="../updater.html">Updater</a></li>
+          <li class="breadcrumb-item"><a href="state.html">State</a></li>
+      <li class="breadcrumb-item active">Extended Kalman Filter</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../_sources/concept/updater/state/ekf.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="extended-kalman-filter">
+<span id="ekf"></span><h1>Extended Kalman Filter<a class="headerlink" href="#extended-kalman-filter" title="Link to this heading"></a></h1>
+<p>The extended Kalman filter (EKF) is a nonlinear variant of the standard Kalman
+filter. It applies to <strong>nonlinear</strong> dynamical systems where the state transition
+and/or measurement models are given by nonlinear functions rather than linear
+matrices.  The EKF operates by linearizing these functions around the current
+estimate using first-order Taylor expansions (Jacobian matrices), then applying
+the standard Kalman filter mechanics to the linearized system.</p>
+<p>The following notation is used throughout this document (see
+<a class="reference internal" href="../../framework/notation.html#notation"><span class="std std-ref">Notation and Conventions</span></a> for a complete reference):</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span> is the state vector at time step <span class="math notranslate nohighlight">\(k\)</span>.</p></li>
+<li><p><span class="math notranslate nohighlight">\(f(\cdot)\)</span> and <span class="math notranslate nohighlight">\(h(\cdot)\)</span> are the <strong>nonlinear state transition
+and measurement functions</strong>, respectively.</p></li>
+</ul>
+<section id="mathematical-formulation">
+<h2>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Link to this heading"></a></h2>
+<p>The nonlinear system is described by</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_{k} = f(\mathbf{x}_{k-1}, \mathbf{u}_{k-1}) + \mathbf{w}_{k-1},\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{z}_{k} = h(\mathbf{x}_{k}) + \mathbf{v}_{k},\]</div>
+<p>where</p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(f(\cdot)\)</span> is the <strong>nonlinear state transition function</strong> that
+propagates the state forward in time,</p></li>
+<li><p><span class="math notranslate nohighlight">\(h(\cdot)\)</span> is the <strong>nonlinear measurement function</strong>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{u}\)</span> is the control vector (if present),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{w}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> are zero‑mean Gaussian noises
+with covariances <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{R}\)</span>,</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{w}_{k} \sim \mathcal{N}(0,\mathbf{Q}_{k}),\qquad
+\mathbf{v}_{k} \sim \mathcal{N}(0,\mathbf{R}_{k}),\]</div>
+</li>
+</ul>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{P}\)</span> denotes the state covariance matrix, <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span>
+the process noise covariance and <span class="math notranslate nohighlight">\(\mathbf{R}\)</span> the measurement noise
+covariance.</p></li>
+</ul>
+<p>The EKF linearizes these functions at the current operating point using
+first-order Taylor expansions. The Jacobian matrices are computed as</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{F}_{k-1} = \left. \frac{\partial f}{\partial \mathbf{x}}\right|_{\hat{\mathbf{x}}^+_{k-1}, \mathbf{u}_{k-1}},\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{H}_{k} = \left. \frac{\partial h}{\partial \mathbf{x}}\right|_{\hat{\mathbf{x}}^-_{k}}.,\]</div>
+<p>where</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}\)</span> and <span class="math notranslate nohighlight">\(\mathbf{H}\)</span> are the <strong>Jacobian matrices</strong> of
+<span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(h\)</span> evaluated at the current estimate.</p></li>
+</ul>
+<p>These Jacobians replace the constant linear matrices of the standard Kalman
+filter, allowing the algorithm to approximate nonlinear dynamics.</p>
+<section id="prediction-step">
+<h3>Prediction Step<a class="headerlink" href="#prediction-step" title="Link to this heading"></a></h3>
+<p>The prior (predicted) state and covariance are computed as</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{x}}^-_{k} = f(\hat{\mathbf{x}}^+_{k-1}, \mathbf{u}_{k-1}),\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}^-_{k} = \mathbf{F}_{k-1} \, \mathbf{P}^+_{k-1}
+    \, \mathbf{F}^T_{k-1} + \mathbf{Q}_{k-1}.\]</div>
+<p>Note that the nonlinear function <span class="math notranslate nohighlight">\(f\)</span> is applied to obtain the predicted
+state, while the Jacobian <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> is used for the covariance
+propagation (linearized dynamics).</p>
+</section>
+<section id="correction-step">
+<h3>Correction Step<a class="headerlink" href="#correction-step" title="Link to this heading"></a></h3>
+<p>After receiving a measurement <span class="math notranslate nohighlight">\(\tilde{\mathbf{z}}_{k}\)</span>, the filter
+computes the innovation (residual) using the nonlinear measurement function</p>
+<div class="math notranslate nohighlight">
+\[\tilde{\mathbf{y}}_{k} = \tilde{\mathbf{z}}_{k} -
+    h(\hat{\mathbf{x}}^-_{k}),\]</div>
+<p>and the Kalman gain</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{K}_{k} = \mathbf{P}^-_{k} \mathbf{H}^T_{k}
+    (\mathbf{H}_{k} \mathbf{P}^-_{k} \mathbf{H}^T_{k} +
+    \mathbf{R}_{k})^{-1}.\]</div>
+<p>The posterior estimate and covariance are then updated by</p>
+<div class="math notranslate nohighlight">
+\[\hat{\mathbf{x}}^+_{k} = \hat{\mathbf{x}}^-_{k} +
+    \mathbf{K}_{k} \tilde{\mathbf{y}}_{k},\]</div>
+<div class="math notranslate nohighlight">
+\[\mathbf{P}^+_{k} = (\mathbf{I} - \mathbf{K}_{k} \mathbf{H}_{k})
+    \mathbf{P}^-_{k}.\]</div>
+<p>As in the linear filter, the posterior covariance reflects the reduction in
+uncertainty provided by the measurement.</p>
+</section>
+</section>
+<section id="linearization-and-approximation-error">
+<h2>Linearization and Approximation Error<a class="headerlink" href="#linearization-and-approximation-error" title="Link to this heading"></a></h2>
+<p>The EKF replaces nonlinear functions with their first-order Taylor
+approximations. This linearization incurs approximation error that grows with
+the magnitude of nonlinearity and the size of the covariance (uncertainty
+region).  For highly nonlinear systems or when nonlinearity matters
+significantly, higher-order filters (e.g., unscented Kalman filter,
+particle filters) may be required.</p>
+</section>
+<section id="motion-models-and-process-noise">
+<h2>Motion Models and Process Noise<a class="headerlink" href="#motion-models-and-process-noise" title="Link to this heading"></a></h2>
+<p>Many of the motion models described in <a class="reference internal" href="../../models/models.html#models"><span class="std std-ref">Motion Models</span></a> are nonlinear, such as
+the <a class="reference internal" href="../../models/constant_turn_rate_velocity.html"><span class="doc">constant turn rate and velocity (CTRV)</span></a>
+model. The EKF is the standard approach for estimating states under these
+models. Process and measurement noise covariances are designed using the same
+principles as for linear filters; see <a class="reference internal" href="../../models/models.html#models"><span class="std std-ref">Motion Models</span></a> for details on
+<span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> design.</p>
+</section>
+<section id="code-documentation">
+<h2>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h2>
+<p>The extended Kalman filter is seperated in prediction and correction step. The prediction step is implemented in the <code class="docutils literal notranslate"><span class="pre">model_state_predictor.hpp</span></code> using a model which inherits from <code class="docutils literal notranslate"><span class="pre">non_linear_kalman_transition_model.hpp</span></code>. The correction step is implemented in the <code class="docutils literal notranslate"><span class="pre">model_state_updater.hpp</span></code> usning a measurement model which inherits from <code class="docutils literal notranslate"><span class="pre">non_linear_kalman_measurement_model.hpp</span></code>.</p>
+<section id="example-usage">
+<h3>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h3>
+<p><strong>Comming Soon</strong></p>
+</section>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<p>R. E. Kalman, “A new approach to linear filtering and prediction problems,” Journal of Basic Engineering, 1960</p>
+<p>Y. Kim and H. Bang, “Introduction to Kalman filter and its applications,” Introduction and implementations of the Kalman filter, IntechOpen, 2018</p>
+<p>H. A. P. Blom and Y. Bar-Shalom, “The interacting multiple model algorithm for systems with Markovian switching coefficients,” in IEEE Transactions on Automatic Control, vol. 33, no. 8, pp. 780-783, 1988</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kf.html" class="btn btn-neutral float-left" title="Kalman Filter" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../dimension/dimension.html" class="btn btn-neutral float-right" title="Dimension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

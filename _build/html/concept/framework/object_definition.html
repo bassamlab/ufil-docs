@@ -1,0 +1,261 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Object Definition &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Updater" href="../updater/updater.html" />
+    <link rel="prev" title="Notation and Conventions" href="notation.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../models/models.html">Motion Models</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+      <li class="breadcrumb-item active">Object Definition</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/framework/object_definition.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="object-definition">
+<span id="id1"></span><h1>Object Definition<a class="headerlink" href="#object-definition" title="Link to this heading"></a></h1>
+<p>Ufil employs a simplified representation of 3D objects called a 2.5D object definition. This representation eliminates the z-component from position and orientation estimations, significantly reducing the state space. The object is depicted as a 3D bounding box, a rectangular prism that encompasses the object. The bounding box is defined by its center position, orientation, and dimensions (length, width, height). It encapsulates the object’s size, shape, and position. Since the z-position component is not estimated, the bounding box also assumes a zero roll and pitch. Ufil represents an object using a 2D pose with x, y, and yaw estimations. Estimations of 2D velocity and acceleration are possible but optional.</p>
+<p>In addition to the 2D pose, Ufil introduces a 3D dimension, an existence probability, a feature vector, a classification vector, and an axis topology to the object definitions. Not all parts are used for all components of Ufil, but the ROS2 communication layer supports communications for all aspects of this object definition.</p>
+<p>Ufil uses objects list to store and share objects. An object list is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{O} = \{O_1, O_2,\dots, O_N\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is the number of objects in the list.</p>
+<a class="reference internal image-reference" href="../../_images/object_global.png"><img alt="Object List" src="../../_images/object_global.png" style="width: 600px;" />
+</a>
+<p>Each object <span class="math notranslate nohighlight">\(O\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[O = \{ \mathbf{x}, \mathbf{P_x}, \mathbf{d}, \mathbf{P_d}, p_e, \mathbf{c}, \mathcal{A}, \mathbf{f}\}\]</div>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is the state vector of the object,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{P_x}\)</span> is the covariance matrix of the state vector,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{d}\)</span> is the dimension vector of the object,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{P_d}\)</span> is the covariance matrix of the dimension vector,</p></li>
+<li><p><span class="math notranslate nohighlight">\(p_e\)</span> is the existence probability of the object,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{c}\)</span> is the classification vector of the object (optional),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathcal{A}\)</span> is the axis topology of the object (optional).</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{f}\)</span> is the feature vector of the object (optional),</p></li>
+</ul>
+<p>The <strong>state</strong> <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> of each object is representes as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x} = \left[ p_x, p_y, v_x, v_y, a_x, a_y, \theta, \omega  \right]^T,\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p_x, p_y\)</span> are the Cartesian coordinates of the vehicle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_x, v_y\)</span> is the velocity (optional),</p></li>
+<li><p><span class="math notranslate nohighlight">\(a_x, a_y\)</span> is the acceleration (optional),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> is the heading angle (orientation) (optional),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the heading angle rate.</p></li>
+</ul>
+<p>A possible <strong>covariance</strong> <span class="math notranslate nohighlight">\(\mathbf{P_x}\)</span> of the state vector is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{P_x} = \begin{bmatrix}
+    \sigma_{p_x}^2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; \sigma_{p_y}^2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; \sigma_{v_x}^2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; \sigma_{v_y}^2 &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; -1 &amp; 0 &amp; 0 \\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; \sigma_{\theta}^2 &amp; 0\\
+    0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp;\sigma_{\omega}^2
+\end{bmatrix}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the corresponding component. The covariance matrix is a square matrix that describes the variance and covariance of the state vector.
+The diagonal elements represent the variance of each component, while the off-diagonal elements represent the covariance between different components.
+By definiton the covariance matrix is symmetric and positive semi-definite but in practive enforcing the matrix to be strictly positive definite is more desirable.
+The example above shows has <span class="math notranslate nohighlight">\(-1\)</span> for the acceleration components, which means that the acceleration is not estimated. The example also shows zeroes on the off-diagonal elements, which means that the components are not correlated. This is generally not the case for the true covariance matrix but estimation of cross-covariance is not easly archived.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only optional parameters can be set to <span class="math notranslate nohighlight">\(-1\)</span>. The other values in <span class="math notranslate nohighlight">\(\mathbf{P_x}\)</span> must be positive or zero. The <span class="math notranslate nohighlight">\(-1\)</span> value is used to indicate that the corresponding component is not estimated. This is useful for components that are not relevant for the specific application or when the estimation is not available.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <span class="math notranslate nohighlight">\(\mathbf{P_x}\)</span> matrix must stay symmetric and positive definite. This means that the diagonal elements should be postive and not zero as zero values may lead to numerical instability. The diagonal elements should also be equal in both sides of the diagonal. The off-diagonal elements should be equal in both sides of the diagonal.</p>
+</div>
+<p>The <strong>dimension</strong> <span class="math notranslate nohighlight">\(\mathbf{d}\)</span> of the system is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{d} = \left[ l, w, h \right]^T,\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(l\)</span> is the length of the vehicle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(w\)</span> is the width,</p></li>
+<li><p><span class="math notranslate nohighlight">\(h\)</span> is the height (optional).</p></li>
+</ul>
+<p>A possible <strong>covariance</strong> <span class="math notranslate nohighlight">\(\mathbf{P_d}\)</span> of the dimension vector is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{P_d} = \begin{bmatrix}
+    \sigma_{l}^2 &amp; 0 &amp; 0 \\
+    0 &amp; \sigma_{w}^2 &amp; 0 \\
+    0 &amp; 0 &amp; -1
+\end{bmatrix}\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma\)</span> is the standard deviation of the corresponding component. The covariance matrix is constructed analogously to the state vector covariance matrix. The diagonal elements represent the variance of each component, while the off-diagonal elements represent the covariance between different components. The same rules apply as for the state vector covariance matrix.</p>
+<p>The <strong>existence probability</strong> <span class="math notranslate nohighlight">\(p_e\)</span> of the object is represented as:</p>
+<div class="math notranslate nohighlight">
+\[p_e \in [0, 1]\]</div>
+<p>where <span class="math notranslate nohighlight">\(p_e\)</span> is the probability that the object exists. The value of <span class="math notranslate nohighlight">\(p_e\)</span> is between 0 and 1, where 0 means that the object does not exist and 1 means that the object exists with certainty.</p>
+<p>The <strong>classification vector</strong> <span class="math notranslate nohighlight">\(\mathbf{c}\)</span> of the object is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{c} = \left[ c_{car}, c_{truck}, c_{motorcycle}, c_{bicycle}, c_{pedestrian}, c_{stationary}, c_{other} \right]^T,\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(c_{car}\)</span> is the probability that the object is a car,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{truck}\)</span> is the probability that the object is a truck,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{motorcycle}\)</span> is the probability that the object is a motorcycle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{bicycle}\)</span> is the probability that the object is a bicycle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{pedestrian}\)</span> is the probability that the object is a pedestrian,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{stationary}\)</span> is the probability that the object is stationary,</p></li>
+<li><p><span class="math notranslate nohighlight">\(c_{other}\)</span> is the probability that the object is of another type or unknown.</p></li>
+</ul>
+<p>The classification vector is a vector of probabilities that the object belongs to a certain class. The sum of all elements in the classification vector should be equal to 1.</p>
+<p>The axis topology <span class="math notranslate nohighlight">\(\mathcal{A}\)</span> describes the spatial arrangement of the objects’s tires. It is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\mathcal{A} = \{A_1, A_2,\dots, A_M\}\]</div>
+<p>where <span class="math notranslate nohighlight">\(M\)</span> is the number of axles in the list.</p>
+<p>Each axle <span class="math notranslate nohighlight">\(A\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[A = \{ t_w, \sigma^2_{t_w}, t_d, \sigma^2_{t_d}, \mathbf{b} \}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(t_w\)</span> is the track width of the axle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma^2_{t_w}\)</span> is the variance of the track width,</p></li>
+<li><p><span class="math notranslate nohighlight">\(t_d\)</span> is the distance between center of the axle and the center of the vehicle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sigma^2_{t_d}\)</span> is the variance of the distance between center of the axle and the center of the vehicle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is a boolean vector indicating the presence of a tire.</p></li>
+</ul>
+<p>Both variance need to be positive.</p>
+<p>The tire presence vector <span class="math notranslate nohighlight">\(\mathbf{b}\)</span> is defined as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{b} = \left[b_1, b_2, \ldots, b_M\right]^T\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(b_i\)</span> is a boolean value indicating the presence of the tire <span class="math notranslate nohighlight">\(i\)</span> on axle. This one, two, or four elements depending on the axle configuration. The vector is ordered from left to right in driving direction.</p></li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The feature vector is not yet fully implemented in ufil. The message definition exists and the basic structure is in place, but the actual feature extraction and processing components are still under development.</p>
+</div>
+<p>The feature vector <span class="math notranslate nohighlight">\(\mathbf{f}\)</span> of the object is represented as:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{f} = \left[ f_{FL}, f_{FR}, f_{RL}, f_{RR}, f_{L}, f_{R}, f_{F}, f_{B} f_{C}\right]^T,\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(f_{FL}\)</span> is the feature of the front left corner,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{FR}\)</span> is the feature of the front right corner,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{RL}\)</span> is the feature of the rear left corner,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{RR}\)</span> is the feature of the rear right corner,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{L}\)</span> is the feature of the left side,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{R}\)</span> is the feature of the right side,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{F}\)</span> is the feature of the front side,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{B}\)</span> is the feature of the back side,</p></li>
+<li><p><span class="math notranslate nohighlight">\(f_{C}\)</span> is the feature of the center.</p></li>
+</ul>
+<p>The feature vector is a boolean vector, where each element is either 0 or 1. A value of 1 indicates that the feature is available, while a value of 0 indicates that the feature is not available. For example, if a lidar sensor is used to track the object commonly an edge feature (L, R, F, B) or an corner feature (FL, FR, RL, RR) is available. If the object performs self state estimation, the feature vector including the center feature (C) is available.</p>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="notation.html" class="btn btn-neutral float-left" title="Notation and Conventions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../updater/updater.html" class="btn btn-neutral float-right" title="Updater" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,287 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../about.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concept/concept.html">Concept</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Installation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/installation/installation copy 2.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="installation">
+<span id="id1"></span><h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<p>Ufil is a collection of ROS2 packages designed to facilitate infrastructure-based localization and state estimation. It provides a pre-configured workspace and a Makefile to simplify building, cleaning, and dependency management.</p>
+<p><strong>Installation Options</strong></p>
+<ol class="arabic simple">
+<li><p>Building from source using the provided workspace (recommended for developing Ufil).</p></li>
+<li><p>Installing from .deb files (recommended for using Ufil in your own project).</p></li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>While Ufil will support .deb file installation, this is currently a work in progress. For now, we recommend building from source using the provided workspace.</p>
+</div>
+<section id="prerequisites">
+<h2>Prerequisites<a class="headerlink" href="#prerequisites" title="Link to this heading"></a></h2>
+<p>Before installing Ufil, ensure the following steps are completed:</p>
+<ol class="arabic">
+<li><p><strong>Install ROS2</strong></p>
+<p>Ufil requires ROS2 Jazzy or newer. Follow the official installation guide for your version:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.ros.org/en/jazzy/Installation.html">ROS2 Jazzy Installation Guide</a></p></li>
+</ul>
+</li>
+<li><p><strong>Source ROS2</strong></p>
+<p>After installing ROS2, source its setup file:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/&lt;ros2-distro&gt;/setup.bash
+</pre></div>
+</div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">&lt;ros2-distro&gt;</span></code> with your distribution based on your installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you’re using a shell other than Bash, adapt the command accordingly (e.g., <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/&lt;ros2-distro&gt;/setup.zsh</span></code>).</p>
+</div>
+</li>
+</ol>
+</section>
+<section id="building-ufil-from-source">
+<h2>Building Ufil from Source<a class="headerlink" href="#building-ufil-from-source" title="Link to this heading"></a></h2>
+<ol class="arabic">
+<li><p><strong>Clone the Ufil Workspace</strong></p>
+<p>Clone the Ufil workspace to your system. This workspace contains all the necessary files and a Makefile for simplified setup:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>&lt;link<span class="w"> </span>to<span class="w"> </span>ufil<span class="w"> </span>workspace<span class="w"> </span>git&gt;<span class="w"> </span>ufil_ws
+<span class="nb">cd</span><span class="w"> </span>ufil_ws
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you forgot to use <code class="docutils literal notranslate"><span class="pre">--recurse-submodules</span></code>, run the following command to initialize and update submodules:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+</pre></div>
+</div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>When you check out the submodule, it will initially point to a specific commit rather than a branch.
+To develop using ufil, you’ll need to manually check out the appropriate branches.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>checkout<span class="w"> </span>main
+</pre></div>
+</div>
+</div>
+</li>
+<li><p><strong>Create Virtual Environment</strong></p>
+<p>We are using a virtual python environment to manage our dependencies. We plan to remove all python dependencies in the future but for now, this is required to avoid conflicts with the  packages. Create and activate the virtual environment using the following commands:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create environment</span>
+python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv<span class="w"> </span>--system-site-packages<span class="w"> </span>--symlinks
+
+<span class="c1"># Use environment</span>
+.<span class="w"> </span>./venv/bin/activate
+</pre></div>
+</div>
+</li>
+<li><p><strong>Install Dependencies</strong></p>
+<p>Use the Makefile to install all required ROS2 dependencies:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>dependencies
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>This step may require <code class="docutils literal notranslate"><span class="pre">sudo</span></code> permissions to install system dependencies.</p>
+</div>
+</li>
+<li><p><strong>Build Ufil</strong></p>
+<p>Use the Makefile to build Ufil:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make
+</pre></div>
+</div>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>If you encounter issues or warnings during the build, make sure all dependencies are installed and ROS2 is correctly sourced.</p>
+</div>
+</li>
+<li><p><strong>Optional: Debug Build</strong></p>
+<p>To build Ufil in debug mode (useful for development or troubleshooting), first clean the workspace:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean
+make<span class="w"> </span>debug
+</pre></div>
+</div>
+</li>
+<li><p><strong>Optional: Build Specific Packages</strong></p>
+<p>You can also build specific components of Ufil:</p>
+<ul>
+<li><p><strong>Core functionality</strong> (essential Ufil features):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>core
+</pre></div>
+</div>
+</li>
+<li><p><strong>Inroad sensing</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>ssl
+</pre></div>
+</div>
+</li>
+<li><p>…</p></li>
+</ul>
+</li>
+<li><p><strong>Clean the Workspace</strong></p>
+<p>If needed, clean the workspace using:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make<span class="w"> </span>clean
+</pre></div>
+</div>
+</li>
+<li><p><strong>Verify Installation</strong></p>
+<p>After building, verify that the Ufil packages are correctly installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>install/setup.bash
+ros2<span class="w"> </span>pkg<span class="w"> </span>list<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>ufil
+</pre></div>
+</div>
+</li>
+</ol>
+</section>
+<section id="additional-notes">
+<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Link to this heading"></a></h2>
+<ul>
+<li><p><strong>Working with Python Files</strong></p>
+<p>If you are working with Python files in Ufil, add the <code class="docutils literal notranslate"><span class="pre">--symlink-install</span></code> flag to the <code class="docutils literal notranslate"><span class="pre">COLCON_ARGS</span></code> in the Makefile for easier development. Modify the line as follows:</p>
+<div class="highlight-make notranslate"><div class="highlight"><pre><span></span><span class="nv">COLCON_ARGS</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span>--merge-install<span class="w"> </span>--symlink-install<span class="w"> </span>--parallel-workers<span class="w"> </span><span class="m">2</span><span class="w"> </span>--cmake-force-configure
+</pre></div>
+</div>
+</li>
+<li><p><strong>General Tip</strong></p>
+<p>Consider adding <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">/opt/ros/jazzu/setup.bash</span></code> and <code class="docutils literal notranslate"><span class="pre">source</span> <span class="pre">~/ufil_ws/install/setup.bash</span></code> to your shell’s startup script (e.g., <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>) to avoid manually sourcing them every time you open a new terminal.</p>
+</li>
+</ul>
+</section>
+<section id="troubleshooting">
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<section id="common-issue-missing-ament-cmake-package">
+<h3>Common Issue: Missing <code class="docutils literal notranslate"><span class="pre">ament_cmake</span></code> Package<a class="headerlink" href="#common-issue-missing-ament-cmake-package" title="Link to this heading"></a></h3>
+<ul>
+<li><p><strong>Error Message</strong>:</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>CMake Error at CMakeLists.txt:15 (find_package):
+  By not providing &quot;Findament_cmake.cmake&quot; in CMAKE_MODULE_PATH...
+</pre></div>
+</div>
+</li>
+<li><p><strong>Cause</strong>:</p>
+<p>This occurs when ROS2 is not sourced in the terminal before running the command.</p>
+</li>
+<li><p><strong>Solution</strong>:</p>
+<p>Ensure you source ROS2 by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">source</span><span class="w"> </span>/opt/ros/&lt;ros2-distro&gt;/setup.bash
+</pre></div>
+</div>
+<p>Always run this command in every new terminal session or add it to your shell’s startup script (e.g., <code class="docutils literal notranslate"><span class="pre">~/.bashrc</span></code>).</p>
+</li>
+</ul>
+</section>
+<section id="other-suggestions">
+<h3>Other Suggestions<a class="headerlink" href="#other-suggestions" title="Link to this heading"></a></h3>
+<ul>
+<li><p>Ensure all system dependencies for ROS2 are installed. The installation guide linked above provides instructions for setting up your environment.</p></li>
+<li><p>Verify your ROS2 installation by running:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ros2<span class="w"> </span>doctor
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

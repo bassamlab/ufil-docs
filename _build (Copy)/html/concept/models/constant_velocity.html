@@ -1,0 +1,212 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Constant Velocity Model &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Extended Constant Velocity Model" href="extended_constant_velocity.html" />
+    <link rel="prev" title="Random Walk Model" href="random_walk.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="models.html">Motion Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="random_walk.html">Random Walk Model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_velocity.html">Extended Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_acceleration.html">Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_acceleration.html">Extended Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_velocity.html">Constant Turn Rate and Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_acceleration.html">Constant Turn Rate and Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bicycle_model.html">Bicycle Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="models.html">Motion Models</a></li>
+      <li class="breadcrumb-item active">Constant Velocity Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/models/constant_velocity.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="constant-velocity-model">
+<span id="constant-velocity"></span><h1>Constant Velocity Model<a class="headerlink" href="#constant-velocity-model" title="Link to this heading"></a></h1>
+<p>The constant velocity (CV) model is a simple yet widely used motion model in tracking and estimation. In contrast to the <a class="reference internal" href="random_walk.html"><span class="doc">random walk (RW)</span></a> model, it assumes that an object moves in a straight line with a fixed velocity, meaning that no acceleration or external forces affect its motion.</p>
+<p>Algorithms commonly use this model in scenarios where the object’s motion is smooth and free from abrupt changes or if the system inputs, for example, a change in heading angle or acceleration, can not be estimated.</p>
+<section id="mathematical-formulation">
+<h2>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Link to this heading"></a></h2>
+<p>In a two-dimensional space, the state of an object is represented by its position and velocity components:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x} = \begin{bmatrix} p_x \\ p_y \\ v_x \\ v_y \end{bmatrix},\end{split}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p_x, p_y\)</span> are the Cartesian coordinates of the object’s position,</p></li>
+<li><p><span class="math notranslate nohighlight">\(v_x, v_y\)</span> are the velocity components along the x and y axes, respectively.</p></li>
+</ul>
+<p>The following state transition model governs the evolution of the state over time:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_{k+1} = \mathbf{F} \mathbf{x}_k + \mathbf{w}_k,\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\mathbf{x}_k\)</span> is the state at time step <span class="math notranslate nohighlight">\(k\)</span>,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{F}\)</span> is the state transition matrix,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\mathbf{w}_k\)</span> is the process noise, modeling uncertainties in the motion.</p></li>
+</ul>
+<p>The state transition matrix for a time step <span class="math notranslate nohighlight">\(\Delta t\)</span> is given by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{F} = \begin{bmatrix} 1 &amp; 0 &amp; \Delta t &amp; 0 \\ 0 &amp; 1 &amp; 0 &amp; \Delta t \\ 0 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{bmatrix}.\end{split}\]</div>
+<p>This matrix propagates the position based on the previous velocity while assuming it remains constant.</p>
+<div class="admonition hint">
+<p class="admonition-title">Hint</p>
+<p>The state transition matrix <span class="math notranslate nohighlight">\(\mathbf{F}\)</span> might be time-variant as the time step <span class="math notranslate nohighlight">\(\Delta t\)</span> might not be constant.</p>
+</div>
+</section>
+<section id="process-noise">
+<h2>Process Noise<a class="headerlink" href="#process-noise" title="Link to this heading"></a></h2>
+<p>To model real-world uncertainties, we introduce process noise <span class="math notranslate nohighlight">\(\mathbf{w}_k\)</span> following:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{w}_k \sim \mathcal{N}(0, \mathbf{Q}).\]</div>
+<p>The process noise covariance matrix <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> is designed using a <strong>discretized Wiener process model</strong>, accounting for uncertainty in acceleration and yaw rate:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{Q} = \mathbf{G} \mathbf{W} \mathbf{G}^T.\]</div>
+<p>where:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{G} = \begin{bmatrix} \frac{\Delta t^2}{2} &amp; 0 \\ 0 &amp; \frac{\Delta t^2}{2} \\ \Delta t &amp; 0 \\ 0 &amp; \Delta t \end{bmatrix},\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{W} = \begin{bmatrix} \sigma_a^2 &amp; 0 \\ 0 &amp; \sigma_a^2 \end{bmatrix},\end{split}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\sigma_a^2\)</span> represents the variance of the acceleration noise.</p>
+<p>This formulation is derived from the <strong>discretized Wiener process acceleration model</strong>, which is widely used in Kalman filtering applications.</p>
+</section>
+<section id="code-documentation">
+<h2>Code Documentation<a class="headerlink" href="#code-documentation" title="Link to this heading"></a></h2>
+<p>The constant velocity model is implemented in <code class="docutils literal notranslate"><span class="pre">cv_transition_model.hpp</span></code>.</p>
+<section id="example-usage">
+<h3>Example Usage<a class="headerlink" href="#example-usage" title="Link to this heading"></a></h3>
+<div class="highlight-cpp notranslate"><div class="highlight"><pre><span></span><span class="c1">// Define state and control types for model</span>
+<span class="k">using</span><span class="w"> </span><span class="n">State</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">state</span><span class="o">::</span><span class="n">PositionVelocity2D</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">Control</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">type</span><span class="o">::</span><span class="n">control</span><span class="o">::</span><span class="n">None</span><span class="p">;</span>
+<span class="k">using</span><span class="w"> </span><span class="n">TransitionModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ufil</span><span class="o">::</span><span class="n">model</span><span class="o">::</span><span class="n">transition</span><span class="o">::</span><span class="n">ConstantVelocityTransitionModel</span><span class="o">&lt;</span><span class="n">State</span><span class="p">,</span><span class="w"> </span><span class="n">Control</span><span class="o">&gt;</span><span class="p">;</span>
+
+<span class="c1">// Create model instance and initialize</span>
+<span class="n">TransitionModel</span><span class="w"> </span><span class="n">model</span><span class="p">;</span>
+<span class="n">model</span><span class="p">.</span><span class="n">onModelInitialization</span><span class="p">();</span>
+
+<span class="c1">// Step model in update loop</span>
+<span class="n">model</span><span class="p">.</span><span class="n">onEveryTimestep</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">duration</span><span class="p">);</span>
+<span class="n">model</span><span class="p">.</span><span class="n">step</span><span class="p">(</span><span class="n">state</span><span class="p">,</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">nullopt</span><span class="p">,</span><span class="w"> </span><span class="n">timestamp</span><span class="p">,</span><span class="w"> </span><span class="n">predicted_state</span><span class="p">);</span>
+</pre></div>
+</div>
+</section>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>For scenarios where acceleration plays a significant role, the <a class="reference internal" href="constant_acceleration.html"><span class="doc">constant acceleration (CA)</span></a> model provides a more refined approach to motion prediction. Additionally the <a class="reference internal" href="constant_turn_rate_velocity.html"><span class="doc">constant turn rate and velocity (CTRV)</span></a> model allows for limiting the object’s turn rate but is a non-linear model.</p>
+<p>R. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” Interna-
+tional Conference on Information Fusion, 2008</p>
+<p>Y. Bar-Shalom, X. R. Li, and T. Kirubarajan, “Estimation with Applications to Tracking and Navigation,” John Wiley &amp; Sons, 2001</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="random_walk.html" class="btn btn-neutral float-left" title="Random Walk Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="extended_constant_velocity.html" class="btn btn-neutral float-right" title="Extended Constant Velocity Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

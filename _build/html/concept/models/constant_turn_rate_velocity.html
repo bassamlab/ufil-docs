@@ -1,0 +1,206 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Constant Turn Rate and Velocity Model &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=01f34227"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+      <script src="../../_static/copybutton.js?v=f281be69"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="author" title="About these documents" href="../../about.html" />
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Constant Turn Rate and Acceleration Model" href="constant_turn_rate_acceleration.html" />
+    <link rel="prev" title="Extended Constant Acceleration Model" href="extended_constant_acceleration.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Unified Framework for Infrastructure Localization
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../installation/installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../concept.html">Concept</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../framework/notation.html">Notation and Conventions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../framework/object_definition.html">Object Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../updater/updater.html">Updater</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="models.html">Motion Models</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="random_walk.html">Random Walk Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_velocity.html">Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_velocity.html">Extended Constant Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_acceleration.html">Constant Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="extended_constant_acceleration.html">Extended Constant Acceleration Model</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Constant Turn Rate and Velocity Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="constant_turn_rate_acceleration.html">Constant Turn Rate and Acceleration Model</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bicycle_model.html">Bicycle Model</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../association/association.html">Association Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../examples/examples.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../style_guide.html">Style Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../about.html">About</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Unified Framework for Infrastructure Localization</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../concept.html">Concept</a></li>
+          <li class="breadcrumb-item"><a href="models.html">Motion Models</a></li>
+      <li class="breadcrumb-item active">Constant Turn Rate and Velocity Model</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../_sources/concept/models/constant_turn_rate_velocity.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="constant-turn-rate-and-velocity-model">
+<span id="constant-turn-rate-velocity"></span><h1>Constant Turn Rate and Velocity Model<a class="headerlink" href="#constant-turn-rate-and-velocity-model" title="Link to this heading"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This model is currently not implemented in ufil and serves for documentation purposes only.</p>
+</div>
+<p>The constant turn rate and velocity (CTRV) model extends the <a class="reference internal" href="constant_velocity.html"><span class="doc">constant velocity (CV)</span></a> model by incorporating a turn rate, allowing for curved motion. This model is particularly useful in tracking applications where objects follow smooth, turning trajectories, such as vehicles making turns or aircraft following curved flight paths.</p>
+<p>This model assumes that the object moves with constant velocity and a fixed turn rate over the prediction step. <strong>It is highly sensitive to errors in heading angle estimation</strong>, as even small errors can lead to large deviations in the predicted position.</p>
+<section id="mathematical-formulation">
+<h2>Mathematical Formulation<a class="headerlink" href="#mathematical-formulation" title="Link to this heading"></a></h2>
+<p>In a two-dimensional space, the state of an object is represented by:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{x} = \begin{bmatrix} p_x \\ p_y \\ v \\ \theta \\ \omega \end{bmatrix},\end{split}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(p_x, p_y\)</span> are the Cartesian coordinates of the object’s position,</p></li>
+<li><p><span class="math notranslate nohighlight">\(v\)</span> is the velocity magnitude (or speed),</p></li>
+<li><p><span class="math notranslate nohighlight">\(\theta\)</span> is the heading angle,</p></li>
+<li><p><span class="math notranslate nohighlight">\(\omega\)</span> is the turn rate (angular velocity).</p></li>
+</ul>
+<p>The nonlinear state transition function is given by:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{x}_{k+1} = f(\mathbf{x}_k) + \mathbf{w}_k,\]</div>
+<p>where <span class="math notranslate nohighlight">\(f(\mathbf{x}_k)\)</span> represents the nonlinear evolution of the state. Assuming a small time step <span class="math notranslate nohighlight">\(\Delta t\)</span>, the motion model is:</p>
+<div class="math notranslate nohighlight">
+\[p_x^{k+1} = p_x^k + \frac{v^k}{\omega^k} \left( \sin(\theta^k + \omega^k \Delta t) - \sin(\theta^k) \right),\]</div>
+<div class="math notranslate nohighlight">
+\[p_y^{k+1} = p_y^k + \frac{v^k}{\omega^k} \left( -\cos(\theta^k + \omega^k \Delta t) + \cos(\theta^k) \right),\]</div>
+<div class="math notranslate nohighlight">
+\[v^{k+1} = v^k,\]</div>
+<div class="math notranslate nohighlight">
+\[\theta^{k+1} = \theta^k + \omega^k \Delta t,\]</div>
+<div class="math notranslate nohighlight">
+\[\omega^{k+1} = \omega^k.\]</div>
+<p>If the turn rate <span class="math notranslate nohighlight">\(\omega\)</span> is very small (close to zero), the equations reduce to a linear motion update similar to the <a class="reference internal" href="constant_velocity.html"><span class="doc">constant velocity (CV)</span></a> model.</p>
+</section>
+<section id="process-noise">
+<h2>Process Noise<a class="headerlink" href="#process-noise" title="Link to this heading"></a></h2>
+<p>The process noise accounts for real-world uncertainties using a <strong>discretized Wiener process acceleration model</strong>, where acceleration noise <span class="math notranslate nohighlight">\(\sigma_a^2\)</span> and turn rate noise <span class="math notranslate nohighlight">\(\sigma_\omega^2\)</span> are considered. The noise follows:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{w}_k \sim \mathcal{N}(0, \mathbf{Q}),\]</div>
+<p>where the process noise covariance matrix <span class="math notranslate nohighlight">\(\mathbf{Q}\)</span> is computed using:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{B} = \begin{bmatrix} \frac{1}{2} \Delta t^2 &amp; 0 \\
+0 &amp; \frac{1}{2} \Delta t^2 \\
+\Delta t &amp; 0 \\
+0 &amp; \Delta t \\
+0 &amp; \Delta t \end{bmatrix},\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}\mathbf{W} = \begin{bmatrix} \sigma_a^2 &amp; 0 \\
+0 &amp; \sigma_\omega^2 \end{bmatrix},\end{split}\]</div>
+<p>and the process noise covariance is:</p>
+<div class="math notranslate nohighlight">
+\[\mathbf{Q} = \mathbf{B} \mathbf{W} \mathbf{B}^T.\]</div>
+</section>
+<section id="sensitivity-to-heading-angle-errors">
+<h2>Sensitivity to Heading Angle Errors<a class="headerlink" href="#sensitivity-to-heading-angle-errors" title="Link to this heading"></a></h2>
+<p>This model is highly dependent on the <strong>accuracy of heading angle estimation</strong>. Errors in <span class="math notranslate nohighlight">\(\theta\)</span> can propagate significantly into <span class="math notranslate nohighlight">\(p_x\)</span> and <span class="math notranslate nohighlight">\(p_y\)</span>, especially at higher velocities. This sensitivity can be analyzed by computing the Jacobian of <span class="math notranslate nohighlight">\(f(\mathbf{x})\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span> and observing its influence on position error growth.</p>
+<p>A detailed discussion on error propagation in nonlinear motion models, including the CTRV model, can be found in <strong>Bar-Shalom et al. (2001)</strong> [1].</p>
+</section>
+<section id="next-steps">
+<h2>Next Steps<a class="headerlink" href="#next-steps" title="Link to this heading"></a></h2>
+<p>For cases where acceleration also plays a role in turn maneuvers, see the <a class="reference internal" href="constant_turn_rate_acceleration.html"><span class="doc">constant turn rate and acceleration (CTRA)</span></a>.</p>
+<section id="references">
+<h3>References<a class="headerlink" href="#references" title="Link to this heading"></a></h3>
+<p>R. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” Interna-
+tional Conference on Information Fusion, 2008</p>
+<p>Y. Bar-Shalom, X. R. Li, and T. Kirubarajan, “Estimation with Applications to Tracking and Navigation,” John Wiley &amp; Sons, 2001</p>
+</section>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="extended_constant_acceleration.html" class="btn btn-neutral float-left" title="Extended Constant Acceleration Model" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="constant_turn_rate_acceleration.html" class="btn btn-neutral float-right" title="Constant Turn Rate and Acceleration Model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026 XXXX.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
