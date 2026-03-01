@@ -1,0 +1,10 @@
+.. _classification_estimation_via_look_up:
+
+Classification Estimation via Look-Up
+======================================
+
+A simple approach to classification estimation is to use a look-up table that maps estimated dimensions to class probabilities. Usullty, the look-up table is constructed from a training dataset and some feature extreacted from the object. In our case, we use the estimated length and width of the object as features and we construct a look-up table that contains the probability of each class given the estimated dimensions.
+
+This look up table can be constructed by fitting class-conditioned normal distributions to the training data for each class and then applying Bayes' rule to compute the posterior probabilities over the classes given the estimated dimensions. This approche results in a single-shot estimation of the classification vector based on the current dimension estimates, without explicitly modeling temporal dynamics or inter-class relationships. It is a simple and computationally efficient method that can provide reasonable classification performance when the dimension estimates are accurate and the classes are well-separated in the feature space. However, it may struggle with ambiguous cases where different classes have overlapping dimension distributions or when the dimension estimates are noisy.
+
+WIP

@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Classification &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
+  <title>Classification Estimation via Look-Up &mdash; Unified Framework for Infrastructure Localization 0.1.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../../../_static/copybutton.css?v=76b2166b" />
@@ -22,9 +22,7 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="author" title="About these documents" href="../../../about.html" />
     <link rel="index" title="Index" href="../../../genindex.html" />
-    <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Classification Fusion" href="classification_fusion.html" />
-    <link rel="prev" title="Dimension Fusion" href="../dimension/dimension_fusion.html" /> 
+    <link rel="search" title="Search" href="../../../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,26 +44,9 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../installation/installation.html">Installation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../../concept.html">Concept</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../../framework/notation.html">Notation and Conventions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../framework/object_definition.html">Object Definition</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../updater.html">Updater</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="../state/state.html">State</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../dimension/dimension.html">Dimension</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Classification</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="classification_fusion.html">Classification Fusion</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="../existence/existence.html">Existence</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../../models/models.html">Motion Models</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../hypothesize/hypothesize.html">Hypothesize Measures</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../association/association.html">Association Methods</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../../concept.html">Concept</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../examples/examples.html">Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../style_guide.html">Style Guide</a></li>
@@ -86,11 +67,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="../../concept.html">Concept</a></li>
-          <li class="breadcrumb-item"><a href="../updater.html">Updater</a></li>
-      <li class="breadcrumb-item active">Classification</li>
+      <li class="breadcrumb-item active">Classification Estimation via Look-Up</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../../../_sources/concept/updater/classificaiton/classificaiton.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../../../_sources/concept/updater/classificaiton/classification_estimation_via_look_up.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -98,27 +77,16 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="classification">
-<span id="id1"></span><h1>Classification<a class="headerlink" href="#classification" title="Link to this heading"></a></h1>
-<p>Ufil comes with a classification fusion system that requires the individual components to provide a classification vector in their object messages. The fusion algorithem constructs a set of superclasses (e.g. vehicle, VRU, stationary) and fine-grained classes (e.g. car, pedestrian, bicycle) and uses Dempster-Shafer theory to combine the classification vectors from different sources into a single posterior distribution over the classes. This algorithem keeps classifciation resutls stable over time and provides a principled way to handle conflicting or uncertain classification information from different sources.</p>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="classification_fusion.html">Classification Fusion</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="classification_fusion.html#references">References</a></li>
-</ul>
-</li>
-</ul>
-</div>
+  <section id="classification-estimation-via-look-up">
+<span id="id1"></span><h1>Classification Estimation via Look-Up<a class="headerlink" href="#classification-estimation-via-look-up" title="Link to this heading"></a></h1>
+<p>A simple approach to classification estimation is to use a look-up table that maps estimated dimensions to class probabilities. Usullty, the look-up table is constructed from a training dataset and some feature extreacted from the object. In our case, we use the estimated length and width of the object as features and we construct a look-up table that contains the probability of each class given the estimated dimensions.</p>
+<p>This look up table can be constructed by fitting class-conditioned normal distributions to the training data for each class and then applying Bayes’ rule to compute the posterior probabilities over the classes given the estimated dimensions. This approche results in a single-shot estimation of the classification vector based on the current dimension estimates, without explicitly modeling temporal dynamics or inter-class relationships. It is a simple and computationally efficient method that can provide reasonable classification performance when the dimension estimates are accurate and the classes are well-separated in the feature space. However, it may struggle with ambiguous cases where different classes have overlapping dimension distributions or when the dimension estimates are noisy.</p>
 </section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../dimension/dimension_fusion.html" class="btn btn-neutral float-left" title="Dimension Fusion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="classification_fusion.html" class="btn btn-neutral float-right" title="Classification Fusion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
