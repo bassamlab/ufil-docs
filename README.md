@@ -6,7 +6,7 @@ This guide explains how to build and run the Ufil documentation locally.
 By the end, you should be able to view the documentation in your browser,
 similar to the example shown below.
 
-![Title page of Ufil documentation](src/images/placeholder_600_400.png)
+![Title page of Ufil documentation](src/images/title_page_documentation.png)
 
 Alternatively, find the current version of the documentation here: [XXXX](XXXX)
 
