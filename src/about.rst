@@ -1,3 +1,5 @@
+.. _about:
+
 About
 ======
 
@@ -6,10 +8,10 @@ Ufil is the result of a dedicated and collaborative team effort. While led by XX
 Maintainer
 ----------
 
-.. image:: images/XXXX.jpg  
+.. image:: images/placeholder_400_600.png  
     :width: 200px  
     :align: right  
-    :alt: XXXX
+    :alt: Placeholder image for person
 
 **XXXX** is the maintainer and team lead of Ufil. With experience in perception and DevOps, XXXX ensures the framework remains cutting-edge and accessible to users. His management and technical insights guide the ongoing development of Ufil, driving innovation and progress across the team.
 
