@@ -1,8 +1,18 @@
+Welcome to the Ufil Documentation!
+===================================
+
+This guide explains how to build and run the Ufil documentation locally.
+
+By the end, you should be able to view the documentation in your browser,
+similar to the example shown below.
+
+![Title page of Ufil documentation](src/images/placeholder_600_400.png)
+
+Alternatively, find the current version of the documentation here: [XXXX](XXXX)
+
 # 📚 Sphinx Documentation (Dev Container Setup)
 
 This repository contains HTML-based [Sphinx](https://www.sphinx-doc.org/) documentation. You can build, preview, and update the documentation easily using Visual Studio Code with a dev container.
-
-Latest version of the documentation can be found here: [XXXX](XXXX)
 
 ## 🧰 Prerequisites
 
