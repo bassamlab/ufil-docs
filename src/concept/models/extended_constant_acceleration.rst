@@ -111,7 +111,7 @@ Next Steps
 For situations where acceleration plays a significant role, consider using the :doc:`constant acceleration model <constant_acceleration>`, which provides a more refined motion model.
 
 References
---------------------------------
+==========
 
 R\. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” Interna-
 tional Conference on Information Fusion, 2008

@@ -103,7 +103,7 @@ Next Steps
 For scenarios involving turning motions, the :doc:`constant turn rate and acceleration (CTRA) <constant_turn_rate_acceleration>` extends this approach further but is a non-linear model.
 
 References
---------------------------------
+==========
 
 R\. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” Interna-
 tional Conference on Information Fusion, 2008

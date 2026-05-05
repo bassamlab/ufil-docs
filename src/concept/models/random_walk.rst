@@ -87,7 +87,7 @@ Next Steps
 For scenarios where the object's motion is more structured, the :doc:`constant velocity model <constant_velocity>` or the :doc:`constant acceleration model <constant_acceleration>` might provide better performance in motion prediction.
 
 References
---------------------------------
+==========
 
 R\. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” Interna-
 tional Conference on Information Fusion, 2008

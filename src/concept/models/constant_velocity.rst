@@ -97,7 +97,7 @@ Next Steps
 For scenarios where acceleration plays a significant role, the :doc:`constant acceleration (CA) <constant_acceleration>` model provides a more refined approach to motion prediction. Additionally the :doc:`constant turn rate and velocity (CTRV) <constant_turn_rate_velocity>` model allows for limiting the object's turn rate but is a non-linear model.
 
 References
---------------------------------
+==========
 
 R\. Schubert, E. Richter, and G. Wanielik, “Comparison and evaluation of advanced motion models for vehicle tracking,” Interna-
 tional Conference on Information Fusion, 2008

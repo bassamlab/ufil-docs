@@ -9,4 +9,5 @@ Ufil comes with a classification fusion system that requires the individual comp
    :caption: Contents:
    :maxdepth: 2
 
+   classification_estimation_via_look_up
    classification_fusion
