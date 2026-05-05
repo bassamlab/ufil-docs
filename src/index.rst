@@ -1,10 +1,7 @@
-.. Sphinx Gitlab Deployment Demo documentation master file, created by
-   sphinx-quickstart on Mon May  6 00:00:53 2024.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
+.. _index:
 
 Welcome to the Ufil's documentation!
-==================================================================================
+====================================
 
 .. toctree::
    :titlesonly:
@@ -49,3 +46,8 @@ Acknowledgement
 ---------------
 
 We acknowledge the financial support for this project by the `Collaborative Research Center / Transregio 339 <https://www.sfbtrr339.de/de/>`_ of the German Research Foundation (DFG).
+
+This framework is developed by the Cyber-Physical Mobility Group at the University of the Bundeswehr Munich, Germany and the RWTH Aachen University, Germany. For more information about the group and our research, please visit our website:
+
+- `Cyber-Physical Mobility Group in Aachen <https://www.embedded.rwth-aachen.de/cms/embedded/Forschung/~bflcvi/Cyber-Physical-Mobility/lidx/1/>`_ 
+- `Cyber-Physical Mobility Group in Munich <https://www.unibw.de/cas>`_.

@@ -115,9 +115,3 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-# Get ROS 2
-source /opt/ros/jazzy/setup.bash
-if [ -f ~/ws/install/setup.bash ]; then 
-  source ~/ws/install/setup.bash;
-fi
