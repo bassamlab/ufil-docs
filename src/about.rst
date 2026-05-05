@@ -3,23 +3,23 @@
 About
 ======
 
-Ufil is the result of a dedicated and collaborative team effort. While led by XXXX, the framework has been shaped by the contributions of several researchers, developers, and student assistants. Each member of the team plays an important role in pushing the boundaries of infrastructure-based localization, combining their expertise to create a cutting-edge, robust, and versatile solution. This page provides a closer look at the individuals behind the framework and their specific contributions.
+Ufil is the result of a dedicated and collaborative team effort. While led by Simon Schäfer, the framework has been shaped by the contributions of several researchers, developers, and student assistants. Each member of the team plays an important role in pushing the boundaries of infrastructure-based localization, combining their expertise to create a cutting-edge, robust, and versatile solution. This page provides a closer look at the individuals behind the framework and their specific contributions.
 
 Maintainer
 ----------
 
-.. image:: images/placeholder_400_600.png  
+.. image:: images/schaefer.jpg  
     :width: 200px  
     :align: right  
     :alt: Placeholder image for person
 
-**XXXX** is the maintainer and team lead of Ufil. With experience in perception and DevOps, XXXX ensures the framework remains cutting-edge and accessible to users. His management and technical insights guide the ongoing development of Ufil, driving innovation and progress across the team.
+**Simon Schäfer** is the maintainer and team lead of Ufil. With experience in perception and DevOps, Simon ensures the framework remains cutting-edge and accessible to users. His management and technical insights guide the ongoing development of Ufil, driving innovation and progress across the team.
 
 **Contact Information:**  
 
-- 📧 **Email**: XXXX
-- 🔗 **LinkedIn**: XXXX
-- 🐙 **GitHub**: XXXX
+- 📧 **Email**: `schaefer@embedded.rwth-aachen.de <mailto:schaefer@embedded.rwth-aachen.de>`_
+- 🔗 **LinkedIn**: `Simon Schäfer <https://www.linkedin.com/in/simon-schaefer-abc123/>`_
+- 🐙 **GitHub**: `Foxei <https://github.com/Foxei>`_
 
 ----
 
@@ -33,46 +33,47 @@ Team
     *   - Name
         - Task
         - State
-    *   - XXXX
+    *   - Massimo Macron
         - Simulation and Software Maturity
         - Active Student Assistant
-    *   - XXXX
+    *   - Milo Priegnitz
         - Documentation and DevOps
         - Retired Student Assistant
-    *   - XXXX
+    *   - Min Li
         - Driver Sensitive Surface Layer
         - Retired Student Assistant
-    *   - XXXX
+    *   - Marius Molz
         - Central Fusion
         - Completed Master Thesis
-    *   - XXXX
+    *   - Lucas Hegerath
         - Framework
         - Completed Master Thesis
-    *   - XXXX
+    *   - Temur Fayzutdinov
         - Moving Horizon Estimators
         - Completed Master Thesis 
-    *   - XXXX
+    *   - Hendrick Steidl
         - Tracking Sensitive Surface Layer
         - Completed Master Thesis
-    *   - XXXX
+    *   - Nikolay Vuchkov
         - Occlusion Detection
         - Completed Bachelor Thesis 
-    *   - XXXX
+    *   - Florian Eden
         - Central Fusion
         - Completed Bachelor Thesis 
-    *   - XXXX
+    *   - Vicent Westhoff
         - Camera Object Detection
         - Completed Bachelor Thesis 
-    *   - XXXX
+    *   - Malik Lesch
         - Privacy Compliant Dashcam
         - Completed Bachelor Thesis
-    *   - XXXX
+    *   - Karl Kämmerling
         - Vehicle Motion Models
         - Completed Bachelor Thesis
-    *   - XXXX
+    *   - Samantha Kamel
         - Soft GNSS
         - Completed Bachelor Thesis
-    *   - XXXX
+    *   - Hadi Elnemr
         - Map Matching
         - Completed Bachelor Thesis
+
 

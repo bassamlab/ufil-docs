@@ -9,8 +9,8 @@ sys.path.insert(0, os.path.abspath('.'))
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'Unified Framework for Infrastructure Localization'
-copyright = '2026 XXXX'
-author = 'XXXX'
+copyright = '2026 Cyber-Physical Mobility Group'
+author = 'Cyber-Physical Mobility Group'
 release = '0.1.0'
 
 # -- General configuration ---------------------------------------------------
