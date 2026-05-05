@@ -19,7 +19,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build_test:
+  build:
     name: Build and test docs
     runs-on: ubuntu-latest
 
@@ -43,11 +43,9 @@ jobs:
           sphinx-build -W --keep-going -n -b html src _build/test-html
 
       - name: Build production HTML
-        run: |
-          make html
+        run: make html
 
       - name: Upload Pages artifact
-        if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
         uses: actions/upload-pages-artifact@v3
         with:
           path: _build/html
@@ -55,7 +53,7 @@ jobs:
   deploy:
     name: Deploy to GitHub Pages
     if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
-    needs: build_test
+    needs: build
     runs-on: ubuntu-latest
     environment:
       name: github-pages
