@@ -118,7 +118,7 @@ The linear Kalman filter is seperated in prediction and correction step. The pre
 Example Usage
 -------------
 
-**Comming Soon**
+**Coming Soon**
 
 References
 --------------------------------

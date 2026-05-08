@@ -143,7 +143,7 @@ The extended Kalman filter is seperated in prediction and correction step. The p
 Example Usage
 -------------
 
-**Comming Soon**
+**Commng Soon**
 
 References
 --------------------------------

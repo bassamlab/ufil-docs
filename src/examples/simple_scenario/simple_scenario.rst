@@ -19,42 +19,57 @@ Usage
    - Simulated measurements  
    - Tracker estimates  
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   ros2 launch ufil_examples_simple_scenario visualization.launch.py
+      ros2 launch ufil_examples_simple_scenario visualization.launch.py
 
-The command will open an RViz window, which should look similar to this:
+   The command will open an RViz window, which should look similar to this:
 
-.. image:: /images/simple_scenario_visualization.png
-   :width: 400px
-   :align: center
-   :alt: RViz showing the Ufil visualization
+   .. image:: /images/simple_scenario_visualization.png
+      :width: 400px
+      :align: center
+      :alt: RViz showing the Ufil visualization
 
 2. **Start the Tracker**
 
    In a second terminal, start the tracker. This launches a Ufil tracker node that subscribes to measurements, performs tracking, and outputs estimates.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   ros2 launch ufil_examples_simple_scenario tracker.launch.py
+      ros2 launch ufil_examples_simple_scenario tracker.launch.py
 
 3. **Start the Simulation**
 
    In a third terminal, start the simulation. **Ufil** provides three preconfigured scenarios.  
    You can create additional scenarios by adding a `.yaml` file to the `config` directory of the simulator and specifying it during launch:
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   ros2 launch ufil_examples_simple_scenario simulation.launch.py scenario:=crossing.yaml
+      ros2 launch ufil_examples_simple_scenario simulation.launch.py scenario:=crossing.yaml
 
-The visualization will now display the tracking in action.
+   The visualization will now display the tracking in action.
 
 Scenario Examples
 -----------------
 
-**Crossing Scenario**
+The three preconfigured scenarios illustrate different agent motion patterns. All scenarios use two agents of identical size (1×1×1 m) moving at constant velocity.
 
-Selecting ``crossing.yaml`` produces output like this:
+.. list-table:: Scenario Overview
+   :widths: 20 40
+   :header-rows: 1
+
+   * - Scenario
+     - Agent Paths
+   * - ``crossing.yaml``
+     - One agent moves from bottom-left to top-right, another from bottom-right to top-left.
+   * - ``passing.yaml``
+     - Both agents move horizontally in opposite directions (left-\>right and right-\>left)
+   * - ``parallel.yaml``
+     - Both agents move in the same direction (left-\>right) along parallel tracks
+
+Below are reference images for each scenario:
+
+**Crossing Scenario**
 
 .. image:: /images/simple_scenario_running_crossing.png
    :width: 400px
@@ -63,16 +78,12 @@ Selecting ``crossing.yaml`` produces output like this:
 
 **Passing Scenario**
 
-Selecting ``passing.yaml`` produces output like this:
-
 .. image:: /images/simple_scenario_running_passing.png
    :width: 400px
    :align: center
    :alt: RViz showing Ufil tracking the passing scenario
 
 **Parallel Scenario**
-
-Selecting ``parallel.yaml`` produces output like this:
 
 .. image:: /images/simple_scenario_running_parallel.png
    :width: 400px
@@ -118,7 +129,7 @@ This YAML file defines two agents moving in a crossing pattern.
 
 .. note::
 
-   You can create your own scenarios by following this structure.
+   You can create your own scenarios by following the same structure.
    Save the YAML file in the `config` directory of the `ufil_examples_simple_scenario_simulator` and specify it
    during launch with the `scenario` argument:
 

@@ -19,7 +19,7 @@ The scenario is a three-lane highway segment with an sensitive surface layer (SS
    :alt: Illustration of the scenario.
 
 
-The setup in the testbed look like this.
+Below is a photo of the setup:
 
 .. image:: /images/cpm_lab_scenario.jpg
    :width: 400px
@@ -34,32 +34,32 @@ Usage
    
    The example comes with an integrated launch file that starts all components of the system.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   ros2 launch ufil_examples_simple_scenario visualization.launch.py
+      ros2 launch ufil_examples_simple_scenario visualization.launch.py
 
    The visualization should appear as follows:
 
-.. image:: /images/cpm_lab_visualization.png
-   :width: 400px
-   :align: center
-   :alt: RViz showing the Ufil visualization
+   .. image:: /images/cpm_lab_visualization.png
+      :width: 400px
+      :align: center
+      :alt: RViz showing the Ufil visualization
 
 2. **Playing the Dataset**
 
    In a second terminal, play back the dataset provided. This automatically replays all necessary sensor data to trigger the perception pipeline.  
    Using a higher clock frequency improves timestamp accuracy.
 
-.. code-block:: bash
+   .. code-block:: bash
 
-   ros2 bag play <path-to-dataset> --clock 300
+      ros2 bag play <path-to-dataset> --clock 300
 
    The visualization will now display the tracking in action and produce output like this:
 
-.. image:: /images/cpm_lab_running.png
-   :width: 400px
-   :align: center
-   :alt: RViz showing Ufil tracking the complex scenario in the CPM Lab
+   .. image:: /images/cpm_lab_running.png
+      :width: 400px
+      :align: center
+      :alt: RViz showing Ufil tracking the complex scenario in the CPM Lab
 
 Dataset
 -------
