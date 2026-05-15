@@ -27,16 +27,19 @@ The ``ufil_ssl`` component implements the **SSL-based in-road sensing** pipeline
 **Processing:**
 
 1. **Wheel detection**
+
    - Extracts local maxima from each pressure map
    - Computes intensity-weighted centroids inside a dilation area around each maximum
    - Provides wheel positions robust to overlapping contact patches and grid discretisation
 
 2. **Wheel tracking**
-   - Kalman filter with constant-velocity model (lane direction only)
-   - Mahalanobis-distance based association
+
+   - Kalman filter with constant-velocity model
+   - Euclidean-distance based association
    - Includes track confirmation and deletion logic
 
 3. **Vehicle identification**
+
    - Groups wheel tracks using axle and wheel templates
    - Checks geometric consistency (track width, axle spacing, velocity coherence)
    - Computes vehicle existence factor from per-wheel quality and number of assigned wheels
@@ -58,31 +61,39 @@ A model-based roadside lidar sensor node that performs: preprocessing, detection
 **Processing:**
 
 - **Preprocessing**
+
   - Transform to ground-aligned base frame
   - Remove ground and known static structures (height + crop-box filters)
   - Voxel downsampling
 
 - **Object detection**
+
   - Euclidean clustering of filtered point cloud
   - Oriented bounding-box fitting:
+
     - L-shape fitting for extended objects
     - Cylindrical model for small or nearly circular objects
 
 - **Tracking**
+
   - Kalman filter with planar constant-velocity and yaw-rate motion model (6D state: position, velocity, yaw, yaw rate)
   - Two-stage association:
+
     - First: predicted box overlap
     - Second: distance-based (Euclidean or Mahalanobis)
 
 - **Dimension estimation**
+
   - 1D grid-map per axis (length, width, height)
   - Variance-aware binary Bayes update with forgetting produces a robust mean dimension and its associated variance
 
 - **Classification**
+
   - Class-conditioned normal distributions per dimension
   - Bayes' rule computes a posterior over discrete classes, which is then normalized to obtain the classification vector
 
 - **Existence probability**
+
   - Option A: lightweight heuristic (aggregates age, association ratio, shape stability, motion consistency)
   - Option B: Bayesian estimator (persistence field + detection/clutter likelihoods + association history)
 
