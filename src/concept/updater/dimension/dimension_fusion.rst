@@ -91,6 +91,7 @@ Example Usage
 ~~~~~~~~~~~~~~~
 
 .. code:: cpp
+    
     using State = ufil::type::state::PoseVelocity2D;                                                                                                         
     using Dimension = ufil::type::dimension::Dimension3D;
     using Measurement = ufil::type::measurement::Pose2DWithDimension3D;
