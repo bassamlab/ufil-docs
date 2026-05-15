@@ -64,4 +64,4 @@ Usage
 Dataset
 -------
 
-The dataset used for this example is currently **redacted** and will be made available after the paper is accepted at the corresponding venue.
+The dataset used for this example will be made available soon.
