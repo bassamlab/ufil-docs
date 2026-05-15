@@ -1,6 +1,6 @@
 .. _installation_troubleshooting:
 
-Installtion Troubleshooting
+Installation Troubleshooting
 ================================
 
 This page provides a collection of troubleshooting tips and solutions for common issues encountered while building or using Ufil.

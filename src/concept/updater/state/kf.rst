@@ -118,7 +118,23 @@ The linear Kalman filter is seperated in prediction and correction step. The pre
 Example Usage
 -------------
 
-**Comming Soon**
+.. code:: cpp
+    
+    using State = ufil::type::state::PositionVelocity2D;                                                                                                       
+    using Control = ufil::type::control::None;                                                                                                                 
+    using Measurement = ufil::type::measurement::Pose2D;                                                                                                     
+    using TransitionModel = ufil::model::transition::ConstantVelocityTransitionModel<State, Control>;                                                          
+    using MeasurementModel = ufil::model::LinearKalmanMeasurementModel<State, Measurement>;
+    
+    // Prediction step                                                                                                                                       
+    TransitionModel transition_model;                                                                                                                          
+    transition_model.onModelInitialization();                                                                                                                
+    transition_model.onEveryTimestep(state, timestamp, duration);
+    transition_model.step(state, std::nullopt, timestamp, predicted_state);
+    
+    // Correction step
+    MeasurementModel measurement_model;                                                                                                                        
+    measurement_model.step(predicted_state, measurement, timestamp, corrected_state);   
 
 References
 --------------------------------

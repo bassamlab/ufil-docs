@@ -90,7 +90,18 @@ The code for the dimension fusion can be found in ``dimension_gridmap_updater.hp
 Example Usage
 ~~~~~~~~~~~~~~~
 
-**Coming Soon**
+.. code:: cpp
+    
+    using State = ufil::type::state::PoseVelocity2D;                                                                                                         
+    using Dimension = ufil::type::dimension::Dimension3D;
+    using Measurement = ufil::type::measurement::Pose2DWithDimension3D;
+    using Track = ufil::type::Track<State, Dimension, /*...*/>;                                                                                                
+    using DimUpdater = ufil::update::dimension::DimensionGridmapUpdater<Track>;
+    
+    // Create updater and update dimension in loop                                                                                                           
+    DimUpdater updater;                                                                                                                                        
+    Dimension resulting_dimension;                                                                                                                           
+    updater.update(track, measurement, timestamp, resulting_dimension);
 
 References
 --------------------------------

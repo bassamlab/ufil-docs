@@ -32,27 +32,52 @@ Usage
 +++++++++++++++++++++++++++++
 These tasks can be executed from the command palette in VSCode by searching for "Tasks: Run Task" and selecting the desired task.
 
-They will be executed in the context of the component of the file that is currently open in the editor. If no file is open, the tasks will be executed in the context of the workspace.
+They will be executed in the context of the component of the file that is currently focused in the editor. If no file is open, the tasks will be executed in the context of the workspace.
 
 Tasks
-++++++++++++++++++++++++++++
++++++
 
-The tasks can be found in the `tasks.json` file and are the following:
+The tasks can be found in the ``tasks.json`` file. They are divided into four types:
 
-- `lint:xml`: Lints XML files using `ament_xmllint`.
-- `lint:cmake`: Lints CMake files using `ament_cmake_lint_cmake`.
-- `lint:cpp`: Lints C++ files using `ament_cpplint`.
-- `check:copyright`: Checks copyright headers in source files for compliance with the project's copyright policy.
-- `check:uncrustify`: Checks C++ files for formatting using `ament_uncrustify`.
-- `check:cpp`: Checks C++ files for style issues using `ament_cpplint`.
-  
-In addition, some tasks are provided to perform some of the formatting tasks automatically:
+- **Lint**: static analysis of files.
+- **Check**: validation of style, formatting, or copyright compliance.
+- **Format**: automatic in-place correction of files (e.g., adding copyright headers, reformatting C++ code).
+- **Group**: batch tasks that run multiple other tasks.
 
-- `format:copyright`: Adds copyright headers to source files.
-- `format:uncrustify`: Formats C++ files inplace using `ament_uncrustify`.
+.. list-table:: Tasks Reference
+   :widths: 20 12 40
+   :header-rows: 1
 
-To ease execution of these tasks, they can be executed in groups with the following commands:
-
-- `format:all`: Runs all formatting tasks.
-- `check:all`: Runs all check tasks.
-
+   * - Task
+     - Type
+     - Description
+   * - ``lint:xml``
+     - Lint
+     - Lints XML files using ``ament_xmllint``.
+   * - ``lint:cmake``
+     - Lint
+     - Lints CMake files using ``ament_cmake_lint_cmake``.
+   * - ``lint:cpp``
+     - Lint
+     - Lints C++ files using ``ament_cpplint``.
+   * - ``check:copyright``
+     - Check
+     - Checks copyright headers with ``ament_copyright``.
+   * - ``check:uncrustify``
+     - Check
+     - Checks C++ formatting using ``ament_uncrustify``.
+   * - ``check:cpp``
+     - Check
+     - Static analysis of C++ using ``ament_cppcheck``.
+   * - ``format:copyright``
+     - Format
+     - Adds missing copyright headers (MIT license).
+   * - ``format:uncrustify``
+     - Format
+     - Reformats C++ files in place with ``ament_uncrustify --reformat``.
+   * - ``format:all``
+     - Group
+     - Runs ``format:copyright`` and ``format:uncrustify`` in sequence.
+   * - ``check:all``
+     - Group
+     - Runs all lint and check tasks (same as CI pipeline).
