@@ -1,0 +1,10 @@
+{
+  "build": { "dockerfile": "Dockerfile" },
+  "forwardPorts": [8000, 8001],
+  "customizations": {
+    "vscode": { "extensions": ["lextudio.restructuredtext-pack"] }
+  },
+  "mounts": [
+    "type=bind,source=${localEnv:HOME}/.ssh,target=/root/.ssh,readonly"
+  ]
+}

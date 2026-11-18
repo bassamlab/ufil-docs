@@ -1,0 +1,127 @@
+workflow:
+  rules:
+    # dev and main always get branch pipelines: the release (ufil-workspace/ci/release.py) waits
+    # for them while its dev -> main merge request is open. That merge request gets no duplicate
+    # MR pipeline.
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event" && $CI_MERGE_REQUEST_SOURCE_BRANCH_NAME == "dev"
+      when: never
+    - if: $CI_COMMIT_BRANCH == "dev" || $CI_COMMIT_BRANCH == "main"
+    # Avoid duplicate pipelines: run MR pipelines for branches with an open MR, branch pipelines otherwise
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH && $CI_OPEN_MERGE_REQUESTS
+      when: never
+    - if: $CI_COMMIT_BRANCH
+    - if: $CI_COMMIT_TAG
+
+stages:
+  - test
+  - deploy
+  - sync-github
+
+variables:
+  LC_ALL: C.UTF-8
+  PIP_CACHE_DIR: $CI_PROJECT_DIR/.cache/pip
+  # Public mirror (GitHub Pages: https://bassamlab.github.io/ufil-docs/). The SSH deploy key with
+  # write access is the CI/CD variable GITHUB_MIRROR_DEPLOY_KEY (protected, so protect the tags).
+  GITHUB_MIRROR_URL: git@github.com:bassamlab/ufil-docs.git
+  GITHUB_MIRROR_BRANCH: main
+
+.sphinx:
+  # Keep aligned with the base image in .devcontainer/Dockerfile.
+  image: python:3.13-alpine
+  # `docker` selects the Docker-executor group runners (amd64 / arm64); the image is multi-arch.
+  tags:
+    - docker
+  cache:
+    key:
+      files:
+        - .devcontainer/requirements.txt
+    paths:
+      - .cache/pip
+  before_script:
+    - pip install -r .devcontainer/requirements.txt
+
+# ---------------------------------------------------------------------------
+# Stage 1 – Build the internal documentation and the public snapshot with warnings as errors
+# (same flags as the GitHub workflow of the mirror, .github/workflows/docs-pages.yml)
+# ---------------------------------------------------------------------------
+test:
+  extends: .sphinx
+  stage: test
+  script:
+    - sphinx-build -W --keep-going -n -b html src _build/test-internal
+    - cp -r . /tmp/public-snapshot
+    - python3 scripts/strip_internal.py /tmp/public-snapshot
+    - sphinx-build -W --keep-going -n -b html /tmp/public-snapshot/src _build/test-public
+  rules:
+    - if: $CI_COMMIT_TAG
+      when: never
+    - when: on_success
+
+# ---------------------------------------------------------------------------
+# Stage 2 – Deploy the internal documentation to GitLab Pages
+# ---------------------------------------------------------------------------
+pages:
+  extends: .sphinx
+  stage: deploy
+  script:
+    - sphinx-build -M html src _build
+    - mv _build/html/ ./public/
+    - find public -name "*.html" -exec sed -i '/<\/head>/i \
+      <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">\
+      <meta http-equiv="Pragma" content="no-cache">\
+      <meta http-equiv="Expires" content="0">' {} \;
+  artifacts:
+    paths:
+    - public
+  rules:
+    - if: $CI_COMMIT_REF_NAME == $CI_DEFAULT_BRANCH
+
+# ---------------------------------------------------------------------------
+# Stage 3 – Sync a flattened, public snapshot to GitHub on tag creation only (like the workspace).
+# The GitHub workflow of the mirror then builds it and deploys it to GitHub Pages.
+# ---------------------------------------------------------------------------
+sync-github-mirror:
+  extends: .sphinx
+  stage: sync-github
+  before_script:
+    - apk add --no-cache git openssh-client bash
+    - pip install -r .devcontainer/requirements.txt
+    - mkdir -p ~/.ssh
+    - printf '%s\n' "$GITHUB_MIRROR_DEPLOY_KEY" > ~/.ssh/id_ed25519
+    - chmod 600 ~/.ssh/id_ed25519
+    - ssh-keyscan -H github.com >> ~/.ssh/known_hosts 2>/dev/null
+  script:
+    - |
+      set -euo pipefail
+
+      # Copy the working tree instead of re-cloning (avoids needing GitLab SSH access).
+      cp -r "$CI_PROJECT_DIR" /tmp/mirror-src
+      cd /tmp/mirror-src
+
+      # Remove build output, caches and all internal-only content (UofA pages and images, blocks
+      # between ".. internal-only-begin" and ".. internal-only-end").
+      rm -rf _build public .cache
+      python3 scripts/strip_internal.py .
+
+      # Never publish a snapshot that does not build cleanly.
+      sphinx-build -W --keep-going -n -q -b html src /tmp/mirror-build
+
+      # Convert the checkout into a plain repository snapshot.
+      find . -name .git -exec rm -rf {} + || true
+
+      git init
+      git config user.email "${GITHUB_MIRROR_USER_EMAIL:-ci-mirror@local}"
+      git config user.name "${GITHUB_MIRROR_USER_NAME:-CI Mirror}"
+      git add -A
+      git commit -m "$CI_COMMIT_TAG"
+      git branch -M "$GITHUB_MIRROR_BRANCH"
+
+      # Ensure the remote uses SSH even if GITHUB_MIRROR_URL is an HTTPS URL
+      SSH_MIRROR_URL=$(echo "$GITHUB_MIRROR_URL" | sed 's|https://github.com/|git@github.com:|')
+      git remote add origin "$SSH_MIRROR_URL"
+      git tag -f "$CI_COMMIT_TAG"
+      git push --force origin "$GITHUB_MIRROR_BRANCH"
+      git push --force origin "refs/tags/$CI_COMMIT_TAG"
+  rules:
+    - if: $CI_COMMIT_TAG

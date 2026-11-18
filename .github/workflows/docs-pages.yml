@@ -1,0 +1,63 @@
+name: Docs CI and Pages Deploy
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Build and test docs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Build documentation image
+        run: docker build -t ufil-docs .devcontainer
+
+      - name: Test documentation build (warnings as errors)
+        run: |
+          docker run --rm -v "$GITHUB_WORKSPACE:/workspace" -w /workspace ufil-docs \
+            sphinx-build -W --keep-going -n -b html src _build/test-html
+
+      - name: Build production HTML
+        run: |
+          docker run --rm -v "$GITHUB_WORKSPACE:/workspace" -w /workspace ufil-docs \
+            sphinx-build -M html src _build
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _build/html
+
+  deploy:
+    name: Deploy to GitHub Pages
+    if: github.event_name == 'push' && (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master')
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

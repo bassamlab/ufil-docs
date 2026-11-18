@@ -1,0 +1,30 @@
+/* sphinx_rtd_theme disables wrapping in table cells, which cuts off wide tables. */
+.wy-table-responsive table td,
+.wy-table-responsive table th {
+  white-space: normal;
+}
+/* Long literals (topics, class names) may wrap, but names in the first column stay intact. */
+.wy-table-responsive table td code.literal {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.wy-table-responsive table td:first-child code.literal {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+
+/* Mermaid diagrams (from the CPM Lab documentation): white background behind the diagram, also
+   in the fullscreen view. */
+.mermaid-container > pre {
+    background: white !important;
+}
+
+.mermaid-container-fullscreen > pre {
+    background: white !important;
+}
+
+/* Size long flowcharts to their own aspect ratio so the full chart fits (":class: mermaid-tall"
+   on the directive's container) */
+.mermaid-tall .mermaid-container > pre > svg {
+    height: auto;
+}

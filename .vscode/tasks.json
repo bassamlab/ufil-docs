@@ -1,0 +1,41 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build HTML",
+            "type": "shell",
+            "command": "sphinx-build -M html src _build",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Start webserver",
+            "type": "shell",
+            "command": "sphinx-autobuild src _build/html --port 8000",
+            "isBackground": true,
+            "problemMatcher": []
+        },
+        {
+            // Same steps as the sync-github-mirror CI job: strip the internal-only content from a
+            // copy (scripts/strip_internal.py) and build it with warnings as errors.
+            "label": "Build public HTML",
+            "type": "shell",
+            "command": "rm -rf /tmp/ufil-docs-public && mkdir -p /tmp/ufil-docs-public && cp -r src scripts /tmp/ufil-docs-public/ && python3 scripts/strip_internal.py /tmp/ufil-docs-public && rm -rf _build/public && sphinx-build -W --keep-going -n -b html /tmp/ufil-docs-public/src _build/public/html && echo 'Public version: _build/public/html/index.html'",
+            "problemMatcher": [],
+            "group": "test"
+        },
+        {
+            "label": "Start public webserver",
+            "type": "shell",
+            "command": "python3 -m http.server 8001 --directory _build/public/html",
+            "dependsOn": "Build public HTML",
+            "isBackground": true,
+            "problemMatcher": []
+        }
+    ]
+}
